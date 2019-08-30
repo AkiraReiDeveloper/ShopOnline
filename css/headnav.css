@@ -1,0 +1,14 @@
+body{
+	background: #FFFFFF;
+}
+
+li, ul, ol{
+
+	list-style: none;
+}
+
+li a{
+
+	text-decoration-color: #fff;
+	text-decoration: none;
+}
