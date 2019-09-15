@@ -19,21 +19,31 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
-            <form class="form-signin">
+            <form class="form-signin" id="register_id" action="php/registrerDB.php" method="post">
               <div class="form-label-group">
-                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                <input type="text" id="inputUserame" class="form-control" name="Unombre" placeholder="Username" required autofocus>
                 <label for="inputUserame">Username</label>
               </div>
 
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <input type="text" id="inputName" class="form-control" name="nombre" placeholder="Name" required autofocus>
+                <label for="inputName">Name</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="text" id="inputUserape" class="form-control" name="apellido" placeholder="LastName" required autofocus>
+                <label for="inputUserape">LastName</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required>
                 <label for="inputEmail">Email address</label>
               </div>
 
               <hr>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" class="form-control" name="contrasena" placeholder="Password" required>
                 <label for="inputPassword">Password</label>
               </div>
 
@@ -42,8 +52,8 @@
                 <label for="inputConfirmPassword">Confirm password</label>
               </div>
 
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-              <a class="d-block text-center mt-2 small" href="#">Sign In</a>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="register_post" >Register</button>
+              <a class="d-block text-center mt-2 small" href="../Login/indexLogin.php">Sign In</a>
               <hr class="my-4">
             </form>
           </div>
