@@ -1,6 +1,9 @@
 <?php
-    include "includes/conexion.php";
-    require_once "includes/topBar.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+    require_once "includes/conexion.php";
+    include "includes/topBar.php";
    ?>
   <!-- Page Content -->
   <div class="container">
@@ -8,13 +11,13 @@
     <div class="row">
 
       <?php
-          require_once "includes/slidenav.php";
+          include "includes/slidenav.php";
          ?>
 
       <div class="col-lg-9">
 
         <?php
-            require_once "includes/slider.php";
+            include "includes/slider.php";
            ?>
 
         <div class="row">
@@ -37,13 +40,13 @@
 
            <div class="col-lg-4 col-md-6 mb-4">
              <div class="card h-100">
-               <a href="producto.php?id_producto=<?php echo $id_producto;?>"><img class="card-img-top" src="<?php echo $image_producto;?>" alt=""></a>
+               <a href="producto.php?id_producto=<?php echo $id_producto;?>"><img class="card-img-top img" src="<?php echo $image_producto;?>" alt=""></a>
                <div class="card-body">
                  <h4 class="card-title">
                    <a href="producto.php?id_producto=<?php echo $id_producto?>"><?php echo $nombre_producto;?></a>
                  </h4>
                  <h5>&#36;<?php echo $precio_producto;?></h5>
-                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                 <p class="card-text"><?php echo $descripcion_corta_producto ?></p>
                  <a href="producto.php?id_producto=<?php echo $id_producto;?>" class="btn btn-primary" target="_blank" > Agregar al Carro</a>
                </div>
                <div class="card-footer">
@@ -70,11 +73,3 @@
   <?php
         require_once "includes/footer.php";
    ?>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>

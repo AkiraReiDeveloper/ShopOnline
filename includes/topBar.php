@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 

@@ -1,10 +1,10 @@
 <div class="col-lg-3">
 
-  <h1 class="lead">Categorias</h1>
+  <h1 class="lead my-4">Categorias</h1>
   <div class="list-group">
     <?php
       $conexion = ConexionDB::conexion();
-      $sql = "select * from categorias";
+      $sql = "select * from categoria";
       $resultado = $conexion->prepare($sql);
       if(!$resultado->execute()){
         echo"<h1 style='color:red'></h1>";
@@ -12,8 +12,7 @@
         while($registro = $resultado->fetch()){
           $id_categoria = $registro["id_categoria"];
           $titulo_categoria = $registro["nombre"];
-          echo "<a href='categoria/categoria.php?
-          id_categoria=$id_categoria'class='list-group-item'>$titulo_categoria</a>";
+          echo "<a href='categoria.php?id_categoria=$id_categoria' class='list-group-item'>$titulo_categoria</a>";
         }
       }
 
