@@ -1,6 +1,6 @@
 <div class="col-lg-3">
 
-  <h1 class="lead my-4">Categorias</h1>
+  <h1 class="lead my-4 text-dark">Categorias</h1>
   <div class="list-group">
     <?php
       $conexion = ConexionDB::conexion();

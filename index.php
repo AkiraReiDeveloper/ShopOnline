@@ -38,10 +38,10 @@ include "includes/topBar.php";
 
            ?>
 
-           <div class="col-lg-4 col-md-6 mb-4">
+           <div class="col-lg-4 col-md-6 mb-4 ">
              <div class="card h-100">
                <a href="producto.php?id_producto=<?php echo $id_producto;?>"><img class="card-img-top img" src="<?php echo $image_producto;?>" alt=""></a>
-               <div class="card-body">
+               <div class="card-body ">
                  <h4 class="card-title">
                    <a href="producto.php?id_producto=<?php echo $id_producto?>"><?php echo $nombre_producto;?></a>
                  </h4>
@@ -49,8 +49,8 @@ include "includes/topBar.php";
                  <p class="card-text"><?php echo $descripcion_corta_producto ?></p>
                  <a href="producto.php?id_producto=<?php echo $id_producto;?>" class="btn btn-primary" target="_blank" > Agregar al Carro</a>
                </div>
-               <div class="card-footer">
-                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+               <div class="card-footer bg-info">
+                 <small class="text-white ">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                </div>
              </div>
            </div>
