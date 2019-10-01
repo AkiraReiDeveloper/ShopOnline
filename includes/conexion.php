@@ -5,7 +5,7 @@ class ConexionDB{
 
     $server = "localhost";
     $user = "root";
-    $pass = "fimaz2019";
+    $pass = "";//fimaz2019
     $database = "online_shop";
 
     try{
@@ -25,7 +25,7 @@ class ConexionDB{
 
 if(ConexionDB::conexion()){
 
-  echo "conectado";
+  //echo "conectado";
 }else{
   echo "error en la conexion";
 }

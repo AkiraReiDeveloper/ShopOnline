@@ -2,23 +2,23 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-    require_once "includes/conexion.php";
-    include "includes/topBar.php";
-   ?>
+require_once "includes/conexion.php";
+include "includes/topBar.php";
+?>
   <!-- Page Content -->
   <div class="container">
 
     <div class="row">
 
-      <?php
+        <?php
           include "includes/slidenav.php";
-         ?>
+        ?>
 
       <div class="col-lg-9">
 
-        <?php
+          <?php
             include "includes/slider.php";
-           ?>
+          ?>
 
         <div class="row">
           <?php
@@ -55,9 +55,9 @@ error_reporting(E_ALL);
              </div>
            </div>
            <?php
-         }
-       }
-          ?>
+             }
+           }
+           ?>
         </div>
         <!-- /.row -->
 

@@ -16,17 +16,38 @@ error_reporting(E_ALL);
           <!-- /.col-lg-3 -->
 
           <div class="col-lg-9">
+            <?php
+              $id_producto = $_GET["id_producto"];
+              $conexion = ConexionDB::conexion();
+              $sql="select * from productos where id_productos=".$id_producto;
+              $resultado = $conexion->prepare($sql);
+              if(!$resultado->execute()){
+                echo"<h1 style='color:red'></h1>";
+              }else{
+                while($registro = $resultado->fetch()){
+                  $id_producto = $registro["id_productos"];
+                  $nombre_producto = $registro["nombre"];
+                  $precio_producto = $registro["precio"];
+                  $image_producto = $registro["img"];
+                  $descripcion_corta_producto = $registro["descripcion-corta"];
+                  $descripcion_producto = $registro["descripcion"];
+
+             ?>
 
             <div class="card mt-4">
-              <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+              <img class="img_producto card-img-top img-fluid" src="<?php echo $image_producto ?>" alt="">
               <div class="card-body">
-                <h3 class="card-title">Product Name</h3>
-                <h4>$24.99</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+                <h3 class="card-title"><?php echo $nombre_producto ?></h3>
+                <h4>&#36;<?php echo $precio_producto ?></h4>
+                <p class="card-text"><?php echo $descripcion_producto ?></p>
                 <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                 4.0 stars
               </div>
             </div>
+            <?php
+              }
+            }
+            ?>
             <!-- /.card -->
 
             <div class="card card-outline-secondary my-4">

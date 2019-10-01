@@ -18,12 +18,28 @@ error_reporting(E_ALL);
 
     <!-- Page Features -->
     <div class="row text-center">
+      <?php
+        $id_categoria = $_GET["id_categoria"];
+        $conexion = ConexionDB::conexion();
+        $sql="select * from productos where categoria =".$id_categoria;
+        $resultado = $conexion->prepare($sql);
+        if(!$resultado->execute()){
+          echo"<h1 style='color:red'></h1>";
+        }else{
+          while($registro = $resultado->fetch()){
+            $id_producto = $registro["id_productos"];
+            $nombre_producto = $registro["nombre"];
+            $precio_producto = $registro["precio"];
+            $image_producto = $registro["img"];
+            $descripcion_corta_producto = $registro["descripcion-corta"];
+            $descripcion_producto = $registro["descripcion"];
 
+       ?>
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
-            <h4 class="card-title">Card title</h4>
+            <h4 class="card-title"><?php echo $nombre_producto ?></h4>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
           </div>
           <div class="card-footer">
@@ -31,6 +47,11 @@ error_reporting(E_ALL);
           </div>
         </div>
       </div>
+
+      <?php
+        }
+      }
+      ?>
 
     </div>
     <!-- /.row -->
