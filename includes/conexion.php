@@ -5,7 +5,7 @@ class ConexionDB{
 
     $server = "localhost";
     $user = "root";
-    $pass = "";//fimaz2019
+    $pass = "fimaz2019";//fimaz2019
     $database = "online_shop";
 
     try{

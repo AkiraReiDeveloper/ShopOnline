@@ -4,6 +4,9 @@
 .img_producto{
   height: 500px;
 }
+.img_categoria{
+  height: 200px;
+}
 .txt_color{
   color: yellow;
 }

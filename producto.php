@@ -22,7 +22,7 @@ error_reporting(E_ALL);
               $sql="select * from productos where id_productos=".$id_producto;
               $resultado = $conexion->prepare($sql);
               if(!$resultado->execute()){
-                echo"<h1 style='color:red'></h1>";
+                echo"<h1 style='color:red'>Error</h1>";
               }else{
                 while($registro = $resultado->fetch()){
                   $id_producto = $registro["id_productos"];

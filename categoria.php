@@ -21,8 +21,9 @@ error_reporting(E_ALL);
       <?php
         $id_categoria = $_GET["id_categoria"];
         $conexion = ConexionDB::conexion();
-        $sql="select * from productos where categoria =".$id_categoria;
+        $sql="select * from productos where categoria=?";
         $resultado = $conexion->prepare($sql);
+        $resultado->bindParam(1,$id_categoria);
         if(!$resultado->execute()){
           echo"<h1 style='color:red'></h1>";
         }else{
@@ -37,13 +38,13 @@ error_reporting(E_ALL);
        ?>
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          <img class="card-img-top img_categoria" src="<?php echo $image_producto;?>" alt="">
           <div class="card-body">
             <h4 class="card-title"><?php echo $nombre_producto ?></h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <p class="card-text"><?php echo $descripcion_corta_producto?></p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="#" class="btn btn-primary">Mas Información</a>
           </div>
         </div>
       </div>
