@@ -43,6 +43,9 @@
         <li class="nav-item">
           <a class="nav-link" href="Register/register.php">Registrar</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacto/indexContacto.php">Contacto</a>
+        </li>
       </ul>
     </div>
   </div>
