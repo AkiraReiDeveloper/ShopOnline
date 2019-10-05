@@ -8,19 +8,32 @@ error_reporting(E_ALL);
 
   <!-- Page Content -->
   <div class="container">
-
+    <?php
+    $conexion = ConexionDB::conexion();
+    $id_categoria = $_GET["id_categoria"];
+    $sql="select * from categoria where id_categoria=?";
+    $resultado = $conexion->prepare($sql);
+    $resultado->bindParam(1,$id_categoria);
+    if(!$resultado->execute()){
+      echo"<h1 style='color:red'></h1>";
+    }else{
+      while($registro = $resultado->fetch()){
+        $id_categoria = $registro["id_categoria"];
+        $nombre_categoria = $registro["nombre"];
+    ?>
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-      <h1 class="display-3">A Warm Welcome!</h1>
+      <h1 class="display-3"><?php echo $nombre_categoria ?></h1>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
       <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
     </header>
-
+    <?php
+      }
+    }
+    ?>
     <!-- Page Features -->
     <div class="row text-center">
       <?php
-        $id_categoria = $_GET["id_categoria"];
-        $conexion = ConexionDB::conexion();
         $sql="select * from productos where categoria=?";
         $resultado = $conexion->prepare($sql);
         $resultado->bindParam(1,$id_categoria);

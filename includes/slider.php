@@ -5,15 +5,27 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner" role="listbox">
+    <?php
+
+      $conexion = ConexionDB::conexion();
+      $sql="select * from productos";
+      $resultado = $conexion->prepare($sql);
+      if(!$resultado->execute()){
+        echo"<h1 style='color:red'>Error</h1>";
+      }else{
+        while($registro = $resultado->fetch()){
+          $id_producto = $registro["id_productos"];
+          $image_producto = $registro["img"];
+    ?>
+
     <div class="carousel-item active">
-      <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+      <img class="d-block img-fluid" src="<?php echo $image_producto?>" alt="<?php echo $id_producto ?>">
     </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-    </div>
+
+    <?php
+      }
+    }
+    ?>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
