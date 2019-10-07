@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2019 a las 23:38:00
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Tiempo de generación: 07-10-2019 a las 17:38:07
+-- Versión del servidor: 10.1.32-MariaDB
+-- Versión de PHP: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,17 +30,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL
+  `nombre` varchar(255) NOT NULL,
+  `img_categoria` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
-(1, 'VideoJuegos'),
-(2, 'Celulares'),
-(3, 'Deportes');
+INSERT INTO `categoria` (`id_categoria`, `nombre`, `img_categoria`) VALUES
+(1, 'VideoJuegos', 'imagenes/categorias/videojuegos.png'),
+(2, 'Celulares', 'imagenes/categorias/celulares.png'),
+(3, 'Deportes', 'imagenes/categorias/deportes.png'),
+(4, 'Libros', 'imagenes/categorias/libros.png');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,14 @@ INSERT INTO `productos` (`id_productos`, `nombre`, `precio`, `img`, `descripcion
 (3, 'Nintendo Switch Lite Yellow color', 5499, 'imagenes/productos/nintendoswitchlite.jpg', 'Consola Nintendo Switch, color amarrillo, incluye cargador', 'Consola Nintendo Switch, color amarrillo, incluye cargador, completamente nueva de fabrica. Especial para uso portatil.', 1),
 (4, 'Balon de futbol Adidas Startlancer V.', 337, 'imagenes/productos/balon.jpg', 'Balon de fulbol con calcomania de adidas, color rosa', 'Balon de fulbol con calcomania de adidas, color rosa de uso exclusivo profesional, soporte de humedad, union con costuras', 3),
 (5, 'Xiaomi Pocophone F1 Dual SIM 128GB.', 8690, 'imagenes/productos/pocophonef1.jpg', 'Celular marca Xiaomi edicion pocophone f1, mmemoria ram 6GB, memoria ROM 128GB', 'Celular marca Xiaomi edicion pocophone f1, mmemoria ram 6GB, memoria ROM 128GB no expansible, snapdragon 845, camara frontal de 12 y 20 mpx, frontal de 20.', 2),
-(6, 'Nintendo Switch Lite Yellow color', 5499, 'imagenes/productos/nintendoswitchlite.jpg', 'Consola Nintendo Switch, color amarrillo, incluye cargador', 'Consola Nintendo Switch, color amarrillo, incluye cargador, completamente nueva de fabrica. Especial para uso portatil.', 1);
+(6, 'Nintendo Switch Lite Yellow color', 5499, 'imagenes/productos/nintendoswitchlite.jpg', 'Consola Nintendo Switch, color amarrillo, incluye cargador', 'Consola Nintendo Switch, color amarrillo, incluye cargador, completamente nueva de fabrica. Especial para uso portatil.', 1),
+(7, 'El Principito', 600, 'imagenes/productos/elprincipito.png', 'Libro apto para todo publico', 'Libro nuevo para todo tipo de publico', 4),
+(8, 'It - (Eso)', 800, 'imagenes/productos/it.png', 'Libro apto para mayores de 18', 'Libro nuevo para mayores de 18años', 4),
+(9, 'El Spico Analista', 700, 'imagenes/productos/elpsicoanalista.png', 'Libro recomendado para mayores de 18 años', 'Libro nuevo para mayores de 18 años', 4),
+(10, 'Android', 2000, 'imagenes/productos/android.png', 'Libro basico de android', 'Libro basico para aprender a programar en dispositivos con sistema operativo android', 4),
+(11, 'El Bazar de los Malos Sueños', 700, 'imagenes/productos/elbazardelosmalossuenos.png', 'Libro recomendado para mayores de 18 años', 'Libro nuevo recomendado para mayores de 18 años', 4),
+(12, 'Python Pocket Reference ', 2000, 'imagenes/productos/python.png', 'Libro practico para desarrollo de aplicaciones en python', 'Libro practico para el desarrollo de aplicaciones en python 100% nuevo', 4),
+(13, 'Un Final Perfecto', 300, 'imagenes/productos/unfinalerfecto.png', 'Libro recomendado para todo publico', 'Libro nuevo disponibilidad apto para todo publico', 4);
 
 -- --------------------------------------------------------
 
@@ -157,7 +166,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas_dia`

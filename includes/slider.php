@@ -6,20 +6,22 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <?php
-
+      $i = '1';
       $conexion = ConexionDB::conexion();
-      $sql="select * from productos";
+      $sql="select * from categoria";
       $resultado = $conexion->prepare($sql);
       if(!$resultado->execute()){
         echo"<h1 style='color:red'>Error</h1>";
       }else{
         while($registro = $resultado->fetch()){
-          $id_producto = $registro["id_productos"];
-          $image_producto = $registro["img"];
+          $id_categoria = $registro["id_categoria"];
+          $image_producto = $registro["img_categoria"];
+          $active = $i == "1" ? "active" : "";
+          $i = $i + 1;
     ?>
 
-    <div class="carousel-item active">
-      <img class="d-block img-fluid" src="<?php echo $image_producto?>" alt="<?php echo $id_producto ?>">
+    <div class="carousel-item <?php echo $active ?>">
+      <a href="categoria.php?id_categoria=<?php echo $id_categoria ?>"><img class="d-block img-fluid" src="<?php echo $image_producto?>" alt="<?php echo $id_categoria ?>"></a>
     </div>
 
     <?php
