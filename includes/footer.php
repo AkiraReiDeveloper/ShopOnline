@@ -1,5 +1,5 @@
   <!-- Footer -->
-  <footer class="py-5 bg-primary">
+  <footer class="py-5 bg-primary" style="margin-bottom: 0px">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; AKD Commerce Online 2019</p>
     </div>
