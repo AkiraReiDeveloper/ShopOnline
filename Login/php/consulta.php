@@ -1,5 +1,4 @@
 <?php
-//require_once "../../includes/conexion.php";
 
   if(isset($_POST["login_post"])){
 
@@ -16,7 +15,7 @@
       $resultado = $conexion->prepare($sql);
       $resultado->bindValue(1,$correo);
 
-      if(!$resultado->execdute){
+      if(!$resultado->execute()){
 
 
       }else{
@@ -27,13 +26,13 @@
 
             $id_usuario = $registro["id"];
             $usuario = $registro["usuario"];
-            $password = $registro["contrasena"];
+            $password_bd = $registro["contrasena"];
             $nombre = $registro["nombre"];
             $correo_bd = $registro["correo"];
 
           }
 
-          if($correo == $correo_bd){
+          if(($correo == $correo_bd)&&($password == $password_bd)){
 
             header("Location:admin");
           }else{
