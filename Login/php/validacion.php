@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
 $user = "root";
-$pass = "";
+$pass = "fimaz2019";
 $database = "online_shop";
 
 try{
