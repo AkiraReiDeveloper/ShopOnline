@@ -16,6 +16,7 @@ session_start();
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/fontawesome-free/css/fontawesome.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
@@ -50,6 +51,10 @@ session_start();
         <li class="nav-item">
           <a class="nav-link" href="contacto/indexContacto.php">Contacto</a>
         </li>
+        <li class="nav-item">
+          <a class="btn btn-success btn-block" href="carrito_.php">Carrito<i class="fa fa-shopping-cart"></i></a>
+        </li>
+
       </ul>
     </div>
   </div>
