@@ -1,4 +1,14 @@
-<?php include 'includes/topBar.php'; ?>
+<?php 
+require_once "includes/conexion.php";
+include "includes/topBar.php";
+
+if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
+
+	$cantidad = $_GET["cantidad"];
+	$nombre_producto = $_GET["nombre_producto"];
+	echo "<h1 class='text-center text-danger bg-danger'>Hay".$cantidad."disponibles del producto".$nombre_producto."</h1>";
+}
+?>
 <div class="container">
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
@@ -11,17 +21,35 @@
 						</tr>
 					</thead>
 					<tbody>
+					<?php 
+					$conexion = ConexionDB::conexion();
+					foreach($_SESSION as $llave => $valor){
+						if($valor > 0){
+
+							if(substr($llave,0,9)=="producto_"){
+								$longitud = strlen($llave)-9;
+								$id_producto = substr($llave,9,$longitud);
+								$sql = "select * from productos where id_productos=?";
+								$resultado = $conexion->prepare($sql);
+								$resultado->bindParam(1, $id_producto);
+								if($resultado->execute()){
+									while($registro = $resultado->fetch()){
+										$nombre_producto=$registro["nombre"];
+										$desc_corta = $registro["descripcion-corta"];
+										$precio_producto = $registro["precio"];
+									
+					?>
 						<tr>
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
 									<div class="col-sm-10">
-										<h4 class="nomargin">Product 1</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+										<h5 class="nomargin"><?php echo $nombre_producto?></h5>
+										<p><?php $desc_corta ?></p>
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">$150.00</td>
+							<td data-th="Price">&#36;<?php echo $precio_producto ?></td>
 							<td data-th="Quantity">
 								<input type="number" class="form-control text-center" value="1">
 							</td>
@@ -31,7 +59,14 @@
 								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
 							</td>
 						</tr>
-					</tbody>
+						<?php
+						}
+					}
+				}
+			}
+		}
+						?>
+						</tbody>
 					<tfoot>
 						<!--<tr class="visible-xs">
 							<td class="text-center"><strong>Total 1.99</strong></td>

@@ -52,7 +52,7 @@ session_start();
           <a class="nav-link" href="contacto/indexContacto.php">Contacto</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-success btn-block" href="carrito_.php">Carrito<i class="fa fa-shopping-cart"></i></a>
+          <a class="btn btn-success btn-block" href="carrito_.php">Carrito<i class="fas fa-shopping-cart"></i></a>
         </li>
 
       </ul>

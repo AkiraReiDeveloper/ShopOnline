@@ -7,26 +7,40 @@
 
         $id_producto = $_GET["agregar"];
         $conexion = ConexionDB::conexion();
-        $sql = "select * from productos where id_producto=?";
+        $sql = "select * from productos where id_productos=?";
         $resultado = $conexion->prepare($sql);
         $resultado->bindParam(1,$id_producto);
         if(!$resultado->execute()){
             echo "<h1 style='color:red'>Fallo la consulta </h1>";
         }else{
-            if($resultado->rowCount>0){
+            if($resultado->rowCount()>0){
                 while($registro=$resultado->fetch()){
                     if($registro["cantidad"]!=$_SESSION["producto_".$_GET["agregar"]]){
 
                         $_SESSION["producto_".$_GET["agregar"]]+=1;
-                        header("Location: index.php");
+                        header("Location: carrito_.php");
                     }else{
-                        header("Location: index.php?cantidad=".$registro["cantidad"]."&nombre_producto=".$registro["nombre_producto"]."");
+                        header("Location: carrito_.php?cantidad=".$registro["cantidad"]."&nombre_producto=".$registro["nombre"]."");
                     }
                     
                 }
             }
         }
         
+    }
+
+    if(isset($_GET["remover"])){
+        $_SESSION["producto_".$_GET["remover"]]--;
+        if($_SESSION["producto_".$_GET["remover"]]<1){
+            header("Location: carrito_.php");
+        }else{
+            header("Location: carrito_.php");
+        }
+    }
+
+    if(isset($_GET["eliminar"])){
+        $_SESSION["producto_".$_GET["eliminar"]]=0;
+        header("Location: carrito_.php");
     }
 
 ?>
