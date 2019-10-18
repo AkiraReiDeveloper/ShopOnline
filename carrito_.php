@@ -23,6 +23,8 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					<tbody>
 					<?php 
 					$conexion = ConexionDB::conexion();
+					$total = 0;
+					$cantidad_articulos = 0;
 					foreach($_SESSION as $llave => $valor){
 						if($valor > 0){
 
@@ -37,6 +39,8 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 										$nombre_producto=$registro["nombre"];
 										$desc_corta = $registro["descripcion-corta"];
 										$precio_producto = $registro["precio"];
+										$sub_total = $precio_producto * $valor;
+										$cantidad_articulo += $valor; 
 									
 					?>
 						<tr>
@@ -44,23 +48,25 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
 									<div class="col-sm-10">
-										<h5 class="nomargin"><?php echo $nombre_producto?></h5>
-										<p><?php $desc_corta ?></p>
+										<h4 class="nomargin"><?php echo $nombre_producto;?></h4>
+										<p><?php echo $desc_corta; ?></p>
 									</div>
 								</div>
 							</td>
 							<td data-th="Price">&#36;<?php echo $precio_producto ?></td>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
+								<input type="number" class="form-control text-center" value=<?php echo $cantidad_articulos ?>>
 							</td>
-							<td data-th="Subtotal" class="text-center">150.00</td>
+							<td data-th="Subtotal" class="text-center"><?php echo $sub_total ?></td>
 							<td class="actions" data-th="">
 								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+								<button class="btn btn-danger btn-sm" onClick="location.href='funcion_carro.php?remover=<?php echo $id_producto ?>'" ><i class="fa fa-trash-o"></i></button>								
 							</td>
 						</tr>
 						<?php
 						}
+						$_SESSION["total_articulos"]+=$cantidad_articulos;
+						$_SESSION["total_a_pagar"]=$total+=$subTotal;	
 					}
 				}
 			}
