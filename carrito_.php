@@ -59,7 +59,8 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 							</td>
 							<td data-th="Subtotal" class="text-center"><?php echo $sub_total ?></td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+								<button class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
+								<button class="btn btn-warning btn-sm"><i class="fa fa-minus"></i></button>
 								<button class="btn btn-danger btn-sm" onClick="location.href='funcion_carro.php?remover=<?php echo $id_producto ?>'" ><i class="fa fa-trash-o"></i></button>								
 							</td>
 						</tr>
@@ -81,7 +82,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 						<tr>
 							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total $150.00</strong></td>
+							<td class="hidden-xs text-center"><strong><?php echo $_SESSION["total_a_pagar"]; ?></strong></td>
 							<td><a href="https://www.sandbox.paypal.com/webapps/shoppingcart?mfid=1546373779156_cb91e3a2b2dc7&flowlogging_id=cb91e3a2b2dc7#/checkout/shoppingCart" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>
