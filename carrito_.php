@@ -1,6 +1,11 @@
 <?php 
 require_once "includes/conexion.php";
 include "includes/topBar.php";
+?>
+
+<div class="container">
+
+<?php
 
 if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 
@@ -9,7 +14,16 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 	echo "<h1 class='text-center text-danger bg-danger'>Hay".$cantidad."disponibles del producto".$nombre_producto."</h1>";
 }
 ?>
-<div class="container">
+
+
+<form id="carrito" acction="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_cart">
+<input type="hidden" name="business" value="AkiraReiBusiness@gmail.com">
+<input type="hidden" name="upload" value="1">
+<input type="hidden" name="currency_code" value="MXN">
+<input type="hidden" name="cancel_return" value="http://localhost/~multiplataforma7/ShopOnline/">
+<input type="hidden" name="return" value="http://localhost/~multiplataforma7/ShopOnline/success.php">
+
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
 						<tr>
@@ -25,6 +39,12 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					$conexion = ConexionDB::conexion();
 					$total = 0;
 					$cantidad_articulos = 0;
+					//variable de paypal
+					$item_name=1;
+					$item_number=1;
+					$amount=1;
+					$quantity=1;
+
 					foreach($_SESSION as $llave => $valor){
 						if($valor > 0){
 
@@ -55,13 +75,15 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 							</td>
 							<td data-th="Price">&#36;<?php echo $precio_producto ?></td>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value=<?php echo $cantidad_articulos ?>>
+								<input type="number" min="0" class="form-control text-center" value=<?php echo $cantidad_articulo ?>>
 							</td>
 							<td data-th="Subtotal" class="text-center"><?php echo $sub_total ?></td>
 							<td class="actions" data-th="">
-								<button class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
-								<button class="btn btn-warning btn-sm"><i class="fa fa-minus"></i></button>
-								<button class="btn btn-danger btn-sm" onClick="location.href='funcion_carro.php?remover=<?php echo $id_producto ?>'" ><i class="fa fa-trash-o"></i></button>								
+								<div class="col-sm-3">
+									<a class="btn btn-success btn-sm" href="funcion_carro.php?agregar=<?php echo $id_producto;?>"><i class="fa fa-plus"></i></a>
+									<a class="btn btn-warning btn-sm" href="funcion_carro.php?remover=<?php echo $id_producto;?>"><i class="fa fa-minus"></i></a>
+									<a class="btn btn-danger btn-sm" href='funcion_carro.php?eliminar=<?php echo $id_producto ?>' ><i class="fa fa-trash-o"></i></a>								
+								</div>
 							</td>
 						</tr>
 						<?php
