@@ -52,7 +52,22 @@ session_start();
           <a class="nav-link" href="contacto/indexContacto.php">Contacto</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-success btn-block" href="carrito_.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito</a>
+          <a class="btn btn-success btn-block" href="carrito_.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito 
+          <span class="badge badge-light">
+          <?php
+            if(isset($_SESSION["total_articulos"])){
+              if($_SESSION["total_articulos"]>0){
+                echo $_SESSION["total_articulos"];
+              }else{
+                echo $_SESSION["total_articulos"]="-1";
+              }
+            }else{
+              echo "0";
+            }
+              
+            
+          ?>
+          </span></a>
         </li>
 
       </ul>

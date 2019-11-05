@@ -21,7 +21,7 @@ include "includes/topBar.php";
           ?>
 
         <div class="row">
-        <h1><?php echo $_SESSION["producto_1"];?></h1>
+        <h1><?php $_SESSION["producto_1"];?></h1>
           <?php
             
             $conexion = ConexionDB::conexion();

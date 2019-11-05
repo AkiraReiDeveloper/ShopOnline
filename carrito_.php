@@ -11,7 +11,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 
 	$cantidad = $_GET["cantidad"];
 	$nombre_producto = $_GET["nombre_producto"];
-	echo "<h1 class='text-center text-danger bg-danger'>Hay".$cantidad."disponibles del producto".$nombre_producto."</h1>";
+	echo "<h1 class='text-center text-white bg-danger'>Hay ".$cantidad." disponibles del producto".$nombre_producto."</h1>";
 }
 ?>
 
@@ -39,6 +39,8 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					$conexion = ConexionDB::conexion();
 					$total = 0;
 					$cantidad_articulos = 0;
+					$cantidad_articulo = 0;
+					$subTotal = 0;
 					//variable de paypal
 					$item_name=1;
 					$item_number=1;
@@ -60,7 +62,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 										$desc_corta = $registro["descripcion-corta"];
 										$precio_producto = $registro["precio"];
 										$sub_total = $precio_producto * $valor;
-										$cantidad_articulo += $valor; 
+										$cantidad_articulo += $valor;
 									
 					?>
 						<tr>
@@ -82,13 +84,13 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 								<div class="col-sm-3">
 									<a class="btn btn-success btn-sm" href="funcion_carro.php?agregar=<?php echo $id_producto;?>"><i class="fa fa-plus"></i></a>
 									<a class="btn btn-warning btn-sm" href="funcion_carro.php?remover=<?php echo $id_producto;?>"><i class="fa fa-minus"></i></a>
-									<a class="btn btn-danger btn-sm" href='funcion_carro.php?eliminar=<?php echo $id_producto ?>' ><i class="fa fa-trash-o"></i></a>								
+									<a class="btn btn-danger btn-sm" href='funcion_carro.php?eliminar=<?php echo $id_producto;?>' ><i class="fa fa-trash-o"></i></a>								
 								</div>
 							</td>
 						</tr>
 						<?php
 						}
-						$_SESSION["total_articulos"]+=$cantidad_articulos;
+						$_SESSION["total_articulos"]=$cantidad_articulo;
 						$_SESSION["total_a_pagar"]=$total+=$subTotal;	
 					}
 				}
@@ -102,9 +104,9 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					
 						</tr>-->
 						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong><?php echo $_SESSION["total_a_pagar"]; ?></strong></td>
+							<td class="hidden-xs text-center"><strong></strong></td>
 							<td><a href="https://www.sandbox.paypal.com/webapps/shoppingcart?mfid=1546373779156_cb91e3a2b2dc7&flowlogging_id=cb91e3a2b2dc7#/checkout/shoppingCart" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>
