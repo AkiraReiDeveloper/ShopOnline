@@ -21,7 +21,11 @@ include "includes/topBar.php";
           ?>
 
         <div class="row">
-        <h1><?php $_SESSION["producto_1"];?></h1>
+        <h1><?php 
+        if(!isset($_SESSION["total_a_pagar"])){
+						$_SESSION["total_a_pagar"] = $total;
+          }
+          ?></h1>
           <?php
             
             $conexion = ConexionDB::conexion();
@@ -49,7 +53,7 @@ include "includes/topBar.php";
                  </h4>
                  <h5>&#36;<?php echo $precio_producto;?></h5>
                  <p class="card-text"><?php echo $descripcion_corta_producto ?></p>
-                 <a href="funcion_carro.php?agregar=<?php echo $id_producto;?>" class="btn btn-primary" target="_blank" > Agregar al Carro</a>
+                 <a href="funcion_carro.php?agregar=<?php echo $id_producto;?>" class="btn btn-primary"> Agregar al Carro</a>
                </div>
                <div class="card-footer bg-info">
                  <small class="text-white ">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

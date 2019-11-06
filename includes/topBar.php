@@ -59,7 +59,7 @@ session_start();
               if($_SESSION["total_articulos"]>0){
                 echo $_SESSION["total_articulos"];
               }else{
-                echo $_SESSION["total_articulos"]="-1";
+                echo $_SESSION["total_articulos"]="0";
               }
             }else{
               echo "0";
