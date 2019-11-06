@@ -2,13 +2,9 @@
 require_once "includes/conexion.php";
 include "includes/topBar.php";
 ?>
-
 <div class="container">
-
 <?php
-
 if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
-
 	$cantidad = $_GET["cantidad"];
 	$nombre_producto = $_GET["nombre_producto"];
 	echo "<h1 class='text-center text-white bg-danger'>Hay ".$cantidad." disponibles del producto".$nombre_producto."</h1>";
@@ -39,14 +35,19 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					$conexion = ConexionDB::conexion();
 					$total = 0;
 					$cantidad_articulos = 0;
-					$cantidad_articulo = 0;
 					$subTotal = 0;
 					//variable de paypal
 					$item_name=1;
 					$item_number=1;
 					$amount=1;
 					$quantity=1;
-
+					/********/
+					if(!isset($_SESSION["total_a_pagar"])){
+						$_SESSION["total_a_pagar"] = $total;
+					}
+					if(!isset($_SESSION["total_articulos"])){
+						$_SESSION["total_articulos"] = $cantidad_articulos;
+					}
 					foreach($_SESSION as $llave => $valor){
 						if($valor > 0){
 
@@ -62,7 +63,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 										$desc_corta = $registro["descripcion-corta"];
 										$precio_producto = $registro["precio"];
 										$sub_total = $precio_producto * $valor;
-										$cantidad_articulo += $valor;
+										$cantidad_articulos += $valor;
 									
 					?>
 						<tr>
@@ -77,10 +78,11 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 							</td>
 							<td data-th="Price">&#36;<?php echo $precio_producto ?></td>
 							<td data-th="Quantity">
-								<input type="number" min="0" class="form-control text-center" value=<?php echo $cantidad_articulo ?>>
+								<input type="number" min="0" class="form-control text-center" value=<?php echo $valor ?>>
 							</td>
 							<td data-th="Subtotal" class="text-center"><?php echo $sub_total ?></td>
 							<td class="actions" data-th="">
+
 								<div class="col-sm-3">
 									<a class="btn btn-success btn-sm" href="funcion_carro.php?agregar=<?php echo $id_producto;?>"><i class="fa fa-plus"></i></a>
 									<a class="btn btn-warning btn-sm" href="funcion_carro.php?remover=<?php echo $id_producto;?>"><i class="fa fa-minus"></i></a>
@@ -88,9 +90,13 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 								</div>
 							</td>
 						</tr>
+						<input type="hidden" name="item_name_<?php echo $item_name?>" value="<?php echo $nombre_producto ?>">
+						<input type="hidden" name="item_number_<?php echo $item_number?>" value="<?php echo $id_producto ?>">
+						<input type="hidden" name="amount_<?php echo $amount?>" value="<?php echo $precio_producto ?>">
+						<input type="hidden" name="quantity_<?php echo $quantity?>" value="<?php echo $valor ?>">
 						<?php
 						}
-						$_SESSION["total_articulos"]=$cantidad_articulo;
+						$_SESSION["total_articulos"]+=$cantidad_articulos;
 						$_SESSION["total_a_pagar"]=$total+=$subTotal;	
 					}
 				}
