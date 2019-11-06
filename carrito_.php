@@ -113,8 +113,12 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 							<td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong></strong></td>
-							<td><a href="https://www.sandbox.paypal.com/webapps/shoppingcart?mfid=1546373779156_cb91e3a2b2dc7&flowlogging_id=cb91e3a2b2dc7#/checkout/shoppingCart" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td><a href="javascript:void(0);" onclick="document.getElementById('carrito').submit()" id="cart-btn" class="btn btn-success btn-block">Pagar</a></td>
 						</tr>
 					</tfoot>
 				</table>
+				</form>
 </div>
+<?php
+        require_once "includes/footer.php";
+   ?>
