@@ -1,6 +1,6 @@
 <?php
 require_once 'include/ConexionBD.php';
-include 'includes/top.php';
+include 'includes/topBar.php';
 
 /**
 * crear tabla 'pedido'
@@ -30,7 +30,7 @@ include 'includes/top.php';
             if(!$resultado->execute()){
               echo"<h1 id='success'></h1>";
             }else{
-              echo"<h1 id='fail>Algo salio mal</h1>'"
+              echo"<h1 id='fail>Algo salio mal</h1>'";
             }
             session_destroy();
 

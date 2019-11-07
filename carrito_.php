@@ -99,7 +99,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 						<?php
 						}
 						$_SESSION["total_articulos"]=$cantidad_articulos;
-						$_SESSION["total_a_pagar"]=$total+=$subTotal;	
+						$_SESSION["total_a_pagar"]=$total+=$sub_total;	
 					}
 				}
 			}
@@ -114,7 +114,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 						<tr>
 							<td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center">&#36;<strong><?php echo $total ?></strong></td>
+							<td class="hidden-xs text-center"><strong>Total <?php echo "&#36;".$total; ?></strong></td>
 							<td><a href="javascript:void(0)" onclick="document.getElementById('carrito').submit()" id="cart-btn" class="btn btn-success btn-block">Pagar</a></td>
 						</tr>
 					</tfoot>

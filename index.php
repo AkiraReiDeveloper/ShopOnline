@@ -22,8 +22,8 @@ include "includes/topBar.php";
 
         <div class="row">
         <h1><?php 
-        if(!isset($_SESSION["total_a_pagar"])){
-						$_SESSION["total_a_pagar"] = $total;
+        if(!isset($_SESSION["producto_1"])){
+						echo $_SESSION["producto_1"];
           }
           ?></h1>
           <?php
