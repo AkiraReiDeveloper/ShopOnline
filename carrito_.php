@@ -45,8 +45,8 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					if(!isset($_SESSION["total_a_pagar"])){
 						$_SESSION["total_a_pagar"] = $total;
 					}
-					if(!isset($_SESSION["total_articulos"])){
-						$_SESSION["total_articulos"] = $cantidad_articulos;
+					if(!isset($_SESSION["cantidad_articulos"])){
+						$_SESSION["cantidad_articulos"] = $cantidad_articulos;
 					}
 					foreach($_SESSION as $llave => $valor){
 						if($valor > 0){
@@ -97,6 +97,10 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 						<input type="hidden" name="amount_<?php echo $amount?>" value="<?php echo $precio_producto ?>">
 						<input type="hidden" name="quantity_<?php echo $quantity?>" value="<?php echo $valor ?>">
 						<?php
+$item_name++;
+			$item_number++;
+			$amount++;
+			$quantity++;
 						}
 						$_SESSION["total_articulos"]=$cantidad_articulos;
 						$_SESSION["total_a_pagar"]=$total+=$sub_total;	
