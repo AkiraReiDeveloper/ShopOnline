@@ -8,6 +8,14 @@ error_reporting(E_ALL);
 
   <!-- Page Content -->
   <div class="container">
+  <div class="row">
+
+        <?php
+          include "includes/slidenav.php";
+        ?>
+
+      <div class="col-lg-9">
+
     <?php
     $conexion = ConexionDB::conexion();
     $id_categoria = $_GET["id_categoria"];
@@ -20,12 +28,13 @@ error_reporting(E_ALL);
       while($registro = $resultado->fetch()){
         $id_categoria = $registro["id_categoria"];
         $nombre_categoria = $registro["nombre"];
+        $descripcion_categoria = $registro["descripcion_categoria"];
     ?>
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
       <h1 class="display-3"><?php echo $nombre_categoria ?></h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-      <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+      <p class="lead"><?php echo $descripcion_categoria ?></p>
+      <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
     </header>
     <?php
       }
@@ -66,6 +75,12 @@ error_reporting(E_ALL);
         }
       }
       ?>
+
+</div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
 
     </div>
     <!-- /.row -->

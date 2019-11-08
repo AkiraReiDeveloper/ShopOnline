@@ -28,7 +28,7 @@ include 'includes/topBar.php';
             $resultado->bindParam(3,$codigo_pedido);
             $resultado->bindParam(4,$divisa_pedido);
             if($resultado->execute()){
-              echo"<h1 id='success'></h1>";
+              echo"<h1 id='success'>Todo Perfecto</h1>";
             }else{
               echo"<h1 id='fail>Algo salio mal</h1>'";
             }

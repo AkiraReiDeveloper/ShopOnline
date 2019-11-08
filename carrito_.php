@@ -97,7 +97,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 						<input type="hidden" name="amount_<?php echo $amount?>" value="<?php echo $precio_producto ?>">
 						<input type="hidden" name="quantity_<?php echo $quantity?>" value="<?php echo $valor ?>">
 						<?php
-$item_name++;
+			$item_name++;
 			$item_number++;
 			$amount++;
 			$quantity++;
