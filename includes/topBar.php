@@ -56,10 +56,12 @@ session_start();
           <span class="badge badge-light">
           <?php
             if(isset($_SESSION["total_articulos"])){
-              if($_SESSION["total_articulos"]>0){
-                echo $_SESSION["total_articulos"];
-              }else{
+              if(isset($_GET["st"])){
                 echo $_SESSION["total_articulos"]="0";
+              }else{
+                if($_SESSION["total_articulos"]>0){
+                echo $_SESSION["total_articulos"];
+                }
               }
             }else{
               echo "0";

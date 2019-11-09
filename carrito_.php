@@ -80,7 +80,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 							</td>
 							<td data-th="Price">&#36;<?php echo $precio_producto ?></td>
 							<td data-th="Quantity">
-								<input type="number" min="0" class="form-control text-center" value=<?php echo $valor ?>>
+								<input  min="0" class="form-control text-center" value=<?php echo $valor ?>>
 							</td>
 							<td data-th="Subtotal" class="text-center">&#36;<?php echo $sub_total ?></td>
 							<td class="actions" data-th="">
@@ -116,7 +116,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					
 						</tr>-->
 						<tr>
-							<td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td><a href="index.php" class="btn btn-warning"><i class="fa fa-chevron-left" aria-hidden="true"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong>Total <?php echo "&#36;".$total; ?></strong></td>
 							<td><a href="javascript:void(0)" onclick="document.getElementById('carrito').submit()" id="cart-btn" class="btn btn-success btn-block">Pagar</a></td>
