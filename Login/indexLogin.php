@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../vendor/bootstrap/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="../jquery/bootstrap/jquery.slim.min.js">
 <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
   <?php
+  require_once "../includes/topBar.php";
     require_once "../includes/conexion.php";
     require_once "php/consulta.php";
   ?>
