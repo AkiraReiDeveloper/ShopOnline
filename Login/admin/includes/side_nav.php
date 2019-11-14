@@ -8,21 +8,32 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <i class="fas fa-fw fa-warehouse"></i>
+          <span>Productos</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Productos:</h6>
           <a class="dropdown-item" href="index.php?agregar_producto">Agregar</a>
           <a class="dropdown-item" href="register.html">Editar</a>
           <a class="dropdown-item" href="forgot-password.html">Eliminar</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Categorias:</h6>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-boxes"></i>
+          <span>Categorias</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="404.html">Agregar</a>
           <a class="dropdown-item" href="blank.html">Editar</a>
           <a class="dropdown-item" href="blank.html">Eliminar</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Usuarios:</h6>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Usuarios</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="404.html">Agregar</a>
           <a class="dropdown-item" href="blank.html">Editar</a>
           <a class="dropdown-item" href="blank.html">Eliminar</a>
