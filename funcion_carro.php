@@ -18,7 +18,7 @@
                     if($registro["cantidad"]!=$_SESSION["producto_".$_GET["agregar"]]){
 
                         $_SESSION["producto_".$_GET["agregar"]]+=1;
-$_SESSION["total_articulos"]++;
+                        $_SESSION["total_articulos"]++;
                         header("Location: carrito_.php");
                     }else{
                         header("Location: carrito_.php?cantidad=".$registro["cantidad"]."&nombre_producto=".$registro["nombre"]."");
@@ -32,9 +32,9 @@ $_SESSION["total_articulos"]++;
 
     if(isset($_GET["remover"])){
         $_SESSION["producto_".$_GET["remover"]]--;
-$_SESSION["total_articulos"]--;
+        $_SESSION["total_articulos"]--;
         if($_SESSION["producto_".$_GET["remover"]]<1){
-unset($_SESSION["producto_".$_GET["remover"]]);
+            unset($_SESSION["producto_".$_GET["remover"]]);
             header("Location: carrito_.php");
         }else{
             header("Location: carrito_.php");
@@ -42,8 +42,8 @@ unset($_SESSION["producto_".$_GET["remover"]]);
     }
 
     if(isset($_GET["eliminar"])){
-$_SESSION["total_articulos"]-=$_SESSION["producto_".$_GET["eliminar"]];
-unset($_SESSION["producto_".$_GET["eliminar"]]);
+        $_SESSION["total_articulos"]-=$_SESSION["producto_".$_GET["eliminar"]];
+        unset($_SESSION["producto_".$_GET["eliminar"]]);
         //$_SESSION["producto_".$_GET["eliminar"]]=0;
         header("Location: carrito_.php");
     }
