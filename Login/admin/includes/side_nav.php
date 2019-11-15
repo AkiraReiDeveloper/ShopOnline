@@ -13,8 +13,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="index.php?agregar_producto">Agregar</a>
-          <a class="dropdown-item" href="register.html">Editar</a>
-          <a class="dropdown-item" href="forgot-password.html">Eliminar</a>
+          <a class="dropdown-item" href="index.php?actualizar_producto">Editar</a>
+          <a class="dropdown-item" href="index.php?eliminar_producto">Eliminar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -23,9 +23,9 @@
           <span>Categorias</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="404.html">Agregar</a>
-          <a class="dropdown-item" href="blank.html">Editar</a>
-          <a class="dropdown-item" href="blank.html">Eliminar</a>
+          <a class="dropdown-item" href="index.php?agregar_categoria">Agregar</a>
+          <a class="dropdown-item" href="index.php?actualizar_categoria">Editar</a>
+          <a class="dropdown-item" href="index.php?eliminar_categoria">Eliminar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -34,9 +34,9 @@
           <span>Usuarios</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="404.html">Agregar</a>
-          <a class="dropdown-item" href="blank.html">Editar</a>
-          <a class="dropdown-item" href="blank.html">Eliminar</a>
+          <a class="dropdown-item" href="index.php?agregar_usuario">Agregar</a>
+          <a class="dropdown-item" href="index.php?actualizar_usuario">Editar</a>
+          <a class="dropdown-item" href="index.php?eliminar_usuario">Eliminar</a>
         </div>
       </li>
       <li class="nav-item">
