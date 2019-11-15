@@ -40,13 +40,13 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.php">
+        <a class="nav-link" href="index.php?visualizar_graficas">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Graficas</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tables.php">
+        <a class="nav-link" href="index.php?visualizar_tablas">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Tablas</span></a>
       </li>
     </ul>

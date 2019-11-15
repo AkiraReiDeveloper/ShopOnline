@@ -16,71 +16,61 @@ include "includes/topBar.php";
         <?php
         $titulo_seccion = "";
         $pagina = "";
+        $bottom_content = "includes/admin_bottom.php";
+        $footer = "includes/admin_fotter.php";
         /*
         /shoponline/Login/admin/
         /shoponline/Login/admin/index.php
         /~multiplataforma7/ShopOnline/Login/admin/
         /~multiplataforma7/ShopOnline/Login/admin/index.php
         */
-        if($_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/"||$_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/index.php"){
+        if($_SERVER['REQUEST_URI']=="/shoponline/Login/admin/"||$_SERVER['REQUEST_URI']=="/shoponline/Login/admin/index.php"){
           $titulo_seccion = "Resumen";
           $pagina = "includes/icon_cards.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['agregar_producto'])){
           $titulo_seccion = "Agregar Producto";
           $pagina = "includes/admin_agregar_producto.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['actualizar_producto'])){
           $titulo_seccion = "Actualizar Producto";
           $pagina = "includes/admin_actualizar_producto.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['eliminar_producto'])){
           $titulo_seccion = "Eliminar Producto";
           $pagina = "includes/admin_eliminar_producto.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['agregar_categoria'])){
           $titulo_seccion = "Agregar Categoria";
           $pagina = "includes/admin_agregar_categoria.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['actualizar_categoria'])){
           $titulo_seccion = "Actualizar Categoria";
           $pagina = "includes/admin_actualizar_categoria.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['eliminar_categoria'])){
           $titulo_seccion = "Eliminar Categoria";
           $pagina = "includes/admin_eliminar_categoria.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['agregar_usuario'])){
           $titulo_seccion = "Agregar Usuario";
           $pagina = "includes/admin_agregar_usuario.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['actualizar_usuario'])){
           $titulo_seccion = "Actualizar Usuario";
           $pagina = "includes/admin_actualizar_usuario.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
         }
         if(isset($_GET['eliminar_usuario'])){
           $titulo_seccion = "Eliminar Usuario";
           $pagina = "includes/admin_eliminar_usuario.php";
-          $bottom_content = "includes/admin_bottom.php";
-          $footer = "includes/admin_fotter.php";
+        }
+        if(isset($_GET['visualizar_graficas'])){
+          $titulo_seccion = "Graficas";
+          $pagina = "includes/admin_graficas.php";
+        }
+        if(isset($_GET['visualizar_tablas'])){
+          $titulo_seccion = "Tablas";
+          $pagina = "includes/admin_tablas.php";
         }
 
         
