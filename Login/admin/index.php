@@ -17,10 +17,12 @@ include "includes/topBar.php";
         $titulo_seccion = "";
         $pagina = "";
         /*
+        /shoponline/Login/admin/
+        /shoponline/Login/admin/index.php
         /~multiplataforma7/ShopOnline/Login/admin/
         /~multiplataforma7/ShopOnline/Login/admin/index.php
         */
-        if($_SERVER['REQUEST_URI']=="/shoponline/Login/admin/"||$_SERVER['REQUEST_URI']=="/shoponline/Login/admin/index.php"){
+        if($_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/"||$_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/index.php"){
           $titulo_seccion = "Resumen";
           $pagina = "includes/icon_cards.php";
           $bottom_content = "includes/admin_bottom.php";
