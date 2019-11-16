@@ -24,45 +24,64 @@ include "includes/topBar.php";
         /~multiplataforma7/ShopOnline/Login/admin/
         /~multiplataforma7/ShopOnline/Login/admin/index.php
         */
-        if($_SERVER['REQUEST_URI']=="/shoponline/Login/admin/"||$_SERVER['REQUEST_URI']=="/shoponline/Login/admin/index.php"){
+        if($_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/"||$_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/index.php"){
           $titulo_seccion = "Resumen";
           $pagina = "includes/icon_cards.php";
+          $logo = "<i class='fas fa-fw fa-home'></i>";
+          $color = "text-success";
         }
         if(isset($_GET['agregar_producto'])){
           $titulo_seccion = "Agregar Producto";
           $pagina = "includes/admin_agregar_producto.php";
+          $logo = "<i class='fas fa-fw fa-user-plus'></i>";
+          $color = "text-success";
         }
         if(isset($_GET['actualizar_producto'])){
           $titulo_seccion = "Actualizar Producto";
           $pagina = "includes/admin_actualizar_producto.php";
+          $logo = "<i class='fas fa-fw fa-pencil-alt'></i>";
+          $color = "text-warning";
         }
         if(isset($_GET['eliminar_producto'])){
           $titulo_seccion = "Eliminar Producto";
           $pagina = "includes/admin_eliminar_producto.php";
+          $logo = "<i class='fas fa-fw fa-minus-square'></i>";
+          $color = "text-danger";
         }
         if(isset($_GET['agregar_categoria'])){
           $titulo_seccion = "Agregar Categoria";
           $pagina = "includes/admin_agregar_categoria.php";
+          $color = "text-success";
         }
         if(isset($_GET['actualizar_categoria'])){
           $titulo_seccion = "Actualizar Categoria";
           $pagina = "includes/admin_actualizar_categoria.php";
+          $logo = "<i class='fas fa-fw fa-pen'></i>";
+          $color = "text-warning";
         }
         if(isset($_GET['eliminar_categoria'])){
           $titulo_seccion = "Eliminar Categoria";
           $pagina = "includes/admin_eliminar_categoria.php";
+          $logo = "<i class='fas fa-fw fa-minus-circle'></i>";
+          $color = "text-danger";
         }
         if(isset($_GET['agregar_usuario'])){
           $titulo_seccion = "Agregar Usuario";
           $pagina = "includes/admin_agregar_usuario.php";
+          $logo = "<i class='fas fa-fw fa-user-plus'></i>";
+          $color = "text-success";
         }
         if(isset($_GET['actualizar_usuario'])){
           $titulo_seccion = "Actualizar Usuario";
           $pagina = "includes/admin_actualizar_usuario.php";
+          $logo = "<i class='fas fa-fw fa-user-edit'></i>";
+          $color = "text-warning";
         }
         if(isset($_GET['eliminar_usuario'])){
           $titulo_seccion = "Eliminar Usuario";
           $pagina = "includes/admin_eliminar_usuario.php";
+          $logo = "<i class='fas fa-fw fa-user-times'></i>";
+          $color = "text-danger";
         }
         if(isset($_GET['visualizar_graficas'])){
           $titulo_seccion = "Graficas";
@@ -77,11 +96,11 @@ include "includes/topBar.php";
         ?>
 
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
+        <ol class="breadcrumb bg-light">
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active"> <?php echo $titulo_seccion?></li>
+          <li class="breadcrumb-item active <?php echo $color ?>"><?php echo $logo ?> <?php echo $titulo_seccion?></li>
         </ol>
 
         <!-- Icon Cards-->
