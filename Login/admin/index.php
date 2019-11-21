@@ -24,7 +24,7 @@ include "includes/topBar.php";
         /~multiplataforma7/ShopOnline/Login/admin/
         /~multiplataforma7/ShopOnline/Login/admin/index.php
         */
-        if($_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/"||$_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/login/admin/index.php"){
+        if($_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/Login/admin/"||$_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/Login/admin/index.php"){
           $titulo_seccion = "Resumen";
           $pagina = "includes/icon_cards.php";
           $logo = "<i class='fas fa-fw fa-home'></i>";
