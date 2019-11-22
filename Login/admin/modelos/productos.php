@@ -1,5 +1,7 @@
 <?php
 
+include "../includes/conexion.php";
+
 class productos extends ConexionDB{
 
   private $db;

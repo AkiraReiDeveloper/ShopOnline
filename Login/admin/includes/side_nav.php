@@ -49,4 +49,9 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Tablas</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="modelos/todos.php">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tablas</span></a>
+      </li>
     </ul>
