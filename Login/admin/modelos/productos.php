@@ -1,13 +1,13 @@
 <?php
 
-include "../includes/conexion.php";
+include "includes/conexion.php";
 
 class productos extends ConexionDB{
 
   private $db;
   private $productos;
   private $productoPorId;
-
+  
   public function __construct(){
 
     $this->db = ConexionDB::conexion();
@@ -42,7 +42,7 @@ class productos extends ConexionDB{
   }
 
   public function eliminarProducto(){
-
+/*
     $sql = "select * from productos where id_productos=?";
     $resultado = $this->db->prepare($sql);
     $resultado->bindValue(1, $id_productos);
@@ -63,7 +63,7 @@ class productos extends ConexionDB{
       }else{
         header("Location:index.php?productos&cmd=3");
       }
-    }
+    }*/
   }
 
   public function mostrarTituloProducto(){

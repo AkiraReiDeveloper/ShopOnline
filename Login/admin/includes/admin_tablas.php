@@ -6,40 +6,57 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <?$array = array(1, 2, 3, 4);
-              foreach ($array as &$valor) {
-              $valor = $valor * 2;
-              }?>
-                <thead>
+              <?php
+              include "modelos/productos.php";
+              $productos = new productos();
+              $array = $productos->getProducto(); 
+              ?>
+              <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Ruta de Imagen</th>
+                    <th>Categoria</th>
+                    <th>Opciones</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Ruta de Imagen</th>
+                    <th>Categoria</th>
+                    <th>Opciones</th>
                   </tr>
                 </tfoot>
+                <?php
+                
+              foreach ($array as &$valor) {
+              $name = $valor['nombre'] ;
+              $precio = $valor['precio'] ;
+              $cantidad = $valor['cantidad'] ;
+              $img = $valor['img'] ;
+              $categoria = $valor['categoria'] ;
+              ?>
+                
                 <tbody>
                   <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td><?php echo $name?></td>
+                    <td><?php echo $precio?></td>
+                    <td><?php echo $cantidad?></td>
+                    <td><?php echo $img?></td>
+                    <td><?php echo $categoria?></td>
+                    <td><a class="btn btn-success btn-block" href="#"><i class="fas fa-search"></i></a>
+                    <a class="btn btn-primary btn-block" href="#"><i class="fas fa-pencil-alt"></i></a>
+                    <a class="btn btn-danger btn-block" href="#"><i class="fas fa-trash-alt"></i></a>
+                  </td>
                   </tr>
                 </tbody>
+                <?php 
+                }
+              ?>
               </table>
             </div>
           </div>

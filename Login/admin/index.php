@@ -24,7 +24,7 @@ include "includes/topBar.php";
         /~multiplataforma7/ShopOnline/Login/admin/
         /~multiplataforma7/ShopOnline/Login/admin/index.php
         */
-        if($_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/Login/admin/"||$_SERVER['REQUEST_URI']=="/~multiplataforma7/ShopOnline/Login/admin/index.php"){
+        if($_SERVER['REQUEST_URI']=="/shoponline/Login/admin/"||$_SERVER['REQUEST_URI']=="/shoponline/Login/admin/index.php"){
           $titulo_seccion = "Resumen";
           $pagina = "includes/icon_cards.php";
           $logo = "<i class='fas fa-fw fa-home'></i>";
@@ -86,10 +86,14 @@ include "includes/topBar.php";
         if(isset($_GET['visualizar_graficas'])){
           $titulo_seccion = "Graficas";
           $pagina = "includes/admin_graficas.php";
+          $logo = "<i class='fas fa-fw fa-user-times'></i>";
+          $color = "text-danger";
         }
         if(isset($_GET['visualizar_tablas'])){
           $titulo_seccion = "Tablas";
           $pagina = "includes/admin_tablas.php";
+          $logo = "<i class='fas fa-fw fa-user-times'></i>";
+          $color = "text-danger";
         }
 
         
