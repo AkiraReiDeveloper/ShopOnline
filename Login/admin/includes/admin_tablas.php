@@ -31,28 +31,31 @@
                     <th>Opciones</th>
                   </tr>
                 </tfoot>
-                <?php
                 
-              foreach ($array as &$valor) {
-              $name = $valor['nombre'] ;
-              $precio = $valor['precio'] ;
-              $cantidad = $valor['cantidad'] ;
-              $img = $valor['img'] ;
-              $categoria = $valor['categoria'] ;
-              ?>
                 
                 <tbody>
-                  <tr>
-                    <td><?php echo $name?></td>
-                    <td><?php echo $precio?></td>
-                    <td><?php echo $cantidad?></td>
-                    <td><?php echo $img?></td>
-                    <td><?php echo $categoria?></td>
-                    <td><a class="btn btn-success btn-block" href="#"><i class="fas fa-search"></i></a>
-                    <a class="btn btn-primary btn-block" href="#"><i class="fas fa-pencil-alt"></i></a>
-                    <a class="btn btn-danger btn-block" href="#"><i class="fas fa-trash-alt"></i></a>
-                  </td>
-                  </tr>
+                <?php
+                
+                foreach ($array as &$valor) {
+                $name = $valor['nombre'] ;
+                $precio = $valor['precio'] ;
+                $cantidad = $valor['cantidad'] ;
+                $img = $valor['img'] ;
+                $categoria = $valor['categoria'] ;
+
+                echo "<tr>
+                <td>". $name."</td>
+                <td>".$precio."</td>
+                <td>".$cantidad."</td>
+                <td>".$img."</td>
+                <td>".$categoria."</td>
+                <td><a class='btn btn-success btn-block' href='#'><i class='fas fa-search'></i></a>
+                <a class='btn btn-primary btn-block' href='#'><i class='fas fa-pencil-alt'></i></a>
+                <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
+                </td>
+              </tr>";
+                ?>
+                  
                 </tbody>
                 <?php 
                 }

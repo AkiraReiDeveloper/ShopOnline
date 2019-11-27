@@ -86,14 +86,14 @@ include "includes/topBar.php";
         if(isset($_GET['visualizar_graficas'])){
           $titulo_seccion = "Graficas";
           $pagina = "includes/admin_graficas.php";
-          $logo = "<i class='fas fa-fw fa-user-times'></i>";
-          $color = "text-danger";
+          $logo = "<i class='fas fa-fw fa-chart-bar'></i>";
+          $color = "text-success";
         }
         if(isset($_GET['visualizar_tablas'])){
           $titulo_seccion = "Tablas";
           $pagina = "includes/admin_tablas.php";
-          $logo = "<i class='fas fa-fw fa-user-times'></i>";
-          $color = "text-danger";
+          $logo = "<i class='fas fa-fw fa-table'></i>";
+          $color = "text-success";
         }
 
         
