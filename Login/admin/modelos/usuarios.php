@@ -1,5 +1,5 @@
 <?php
-
+include "includes/conexion.php";
 class usuarios extends ConexionDB{
 
   private $db;
@@ -9,11 +9,21 @@ class usuarios extends ConexionDB{
   public function __construct(){
 
     $this->db = ConexionDB::conexion();
-    $this->categorias=array();
+    $this->usuarios=array();
   }
 
   public function getUsuario(){
 
+    $sql = "select * from clientes";
+    $resultado = $this->db->prepare($sql);
+    if(!$resultado->execute()){
+      echo "error";
+    }else{
+      while($registro = $resultado->fetch()){
+        $this->usuarios[]=$registro;
+      }
+      return $this->usuarios;
+    }
 
   }
 

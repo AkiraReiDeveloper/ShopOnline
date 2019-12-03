@@ -32,13 +32,14 @@ include "includes/topBar.php";
         }
         if(isset($_GET['agregar_producto'])){
           $titulo_seccion = "Agregar Producto";
-          $pagina = "includes/admin_agregar_producto.php";
+          $pagina = "includes/admin_table_productos.php";
+          //$pagina = "includes/admin_agregar_producto.php";
           $logo = "<i class='fas fa-fw fa-user-plus'></i>";
           $color = "text-success";
         }
-        if(isset($_GET['actualizar_producto'])){
+        if(isset($_GET['actualizar_producto']) || isset($_GET['producto_form'])){
           $titulo_seccion = "Actualizar Producto";
-          $pagina = "includes/admin_actualizar_producto.php";
+          $pagina = "includes/admin_form_producto.php";
           $logo = "<i class='fas fa-fw fa-pencil-alt'></i>";
           $color = "text-warning";
         }
@@ -50,12 +51,13 @@ include "includes/topBar.php";
         }
         if(isset($_GET['agregar_categoria'])){
           $titulo_seccion = "Agregar Categoria";
-          $pagina = "includes/admin_agregar_categoria.php";
+          $pagina = "includes/admin_table_categoria.php";
+          $logo = "<i class='fas fa-fw fa-plus-circle'></i>";
           $color = "text-success";
         }
-        if(isset($_GET['actualizar_categoria'])){
+        if(isset($_GET['actualizar_categoria']) || isset($_GET['categoria_form'])){
           $titulo_seccion = "Actualizar Categoria";
-          $pagina = "includes/admin_actualizar_categoria.php";
+          $pagina = "includes/admin_form_categoria.php";
           $logo = "<i class='fas fa-fw fa-pen'></i>";
           $color = "text-warning";
         }
@@ -67,13 +69,13 @@ include "includes/topBar.php";
         }
         if(isset($_GET['agregar_usuario'])){
           $titulo_seccion = "Agregar Usuario";
-          $pagina = "includes/admin_agregar_usuario.php";
+          $pagina = "includes/admin_table_usuario.php";
           $logo = "<i class='fas fa-fw fa-user-plus'></i>";
           $color = "text-success";
         }
         if(isset($_GET['actualizar_usuario'])){
           $titulo_seccion = "Actualizar Usuario";
-          $pagina = "includes/admin_actualizar_usuario.php";
+          $pagina = "includes/admin_form_usuario.php";
           $logo = "<i class='fas fa-fw fa-user-edit'></i>";
           $color = "text-warning";
         }
@@ -91,12 +93,12 @@ include "includes/topBar.php";
         }
         if(isset($_GET['visualizar_tablas'])){
           $titulo_seccion = "Tablas";
-          $pagina = "includes/admin_tablas.php";
+          $pagina = "includes/admin_form_producto.php";
           $logo = "<i class='fas fa-fw fa-table'></i>";
           $color = "text-success";
         }
 
-        
+
         ?>
 
         <!-- Breadcrumbs-->
@@ -113,7 +115,7 @@ include "includes/topBar.php";
         <!-- Area Chart Example-->
 
         <!-- DataTables Example -->
-        
+
       </div>
       <!-- /.container-fluid -->
 

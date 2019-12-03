@@ -7,27 +7,29 @@
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <?php
-              include "modelos/productos.php";
-              $productos = new productos();
-              $array = $productos->getProducto(); 
+              include "modelos/usuarios.php";
+              $usuarios = new usuarios();
+              $array = $usuarios->getUsuario(); 
               ?>
               <thead>
                   <tr>
+                    <th>Usuario</th>
                     <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Ruta de Imagen</th>
-                    <th>Categoria</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th>Fecha de Registro</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
+                    <th>Usuario</th>
                     <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Ruta de Imagen</th>
-                    <th>Categoria</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th>Fecha de Registro</th>
                     <th>Opciones</th>
                   </tr>
                 </tfoot>
@@ -37,20 +39,24 @@
                 <?php
                 
                 foreach ($array as &$valor) {
-                $name = $valor['nombre'] ;
-                $precio = $valor['precio'] ;
-                $cantidad = $valor['cantidad'] ;
-                $img = $valor['img'] ;
-                $categoria = $valor['categoria'] ;
+
+                $id = $valor["id"];
+                $user = $valor['usuario'] ;
+                $nombre = $valor['nombre'] ;
+                $apellido = $valor['apellido'] ;
+                $correo = $valor['correo'] ;
+                $contrasena = $valor['contrasena'] ;
+                $fecha_reg = $valor['fecha_registro'] ;
 
                 echo "<tr>
-                <td>". $name."</td>
-                <td>".$precio."</td>
-                <td>".$cantidad."</td>
-                <td>".$img."</td>
-                <td>".$categoria."</td>
-                <td><a class='btn btn-success btn-block' href='#'><i class='fas fa-search'></i></a>
-                <a class='btn btn-primary btn-block' href='#'><i class='fas fa-pencil-alt'></i></a>
+                <td>".$user."</td>
+                <td>".$nombre."</td>
+                <td>".$apellido."</td>
+                <td>".$correo."</td>
+                <td>".$contrasena."</td>
+                <td>".$fecha_reg."</td>
+                <td>
+                <a class='btn btn-primary btn-block' href='index.php?producto_form&id=".$id."'><i class='fas fa-pencil-alt'></i></a>
                 <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
                 </td>
               </tr>";
@@ -69,5 +75,3 @@
         <p class="small text-center text-muted my-5">
           <em>More table examples coming soon...</em>
         </p>
-
-      

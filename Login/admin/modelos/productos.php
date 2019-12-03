@@ -11,7 +11,7 @@ class productos extends ConexionDB{
   public function __construct(){
 
     $this->db = ConexionDB::conexion();
-    $this->categorias=array();
+    $this->productos=array();
   }
 
   public function getProducto(){
@@ -32,9 +32,18 @@ class productos extends ConexionDB{
 
   }
 
-  public function getProductoPorId(){
+  public function getProductoPorId($id_producto){
 
-
+    $sql = "select * from productos where id_productos =".$id_producto;
+    $resultado = $this->db->prepare($sql);
+    if(!$resultado->execute()){
+      echo "error";
+    }else{
+      while($registro = $resultado->fetch()){
+        $this->productoPorId[]=$registro;
+      }
+      return $this->productoPorId;
+    }
   }
 
   public function editarProducto(){
