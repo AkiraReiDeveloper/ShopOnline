@@ -93,7 +93,7 @@ include "includes/topBar.php";
         }
         if(isset($_GET['visualizar_tablas'])){
           $titulo_seccion = "Tablas";
-          $pagina = "includes/admin_form_producto.php";
+          $pagina = "includes/admin_data_table.php";
           $logo = "<i class='fas fa-fw fa-table'></i>";
           $color = "text-success";
         }

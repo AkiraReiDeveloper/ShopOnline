@@ -33,39 +33,25 @@
                     <th>Opciones</th>
                   </tr>
                 </tfoot>
-                
-                
                 <tbody>
                 <?php
                 
-                foreach ($array as &$valor) {
-
-                $id = $valor["id"];
-                $user = $valor['usuario'] ;
-                $nombre = $valor['nombre'] ;
-                $apellido = $valor['apellido'] ;
-                $correo = $valor['correo'] ;
-                $contrasena = $valor['contrasena'] ;
-                $fecha_reg = $valor['fecha_registro'] ;
-
-                echo "<tr>
-                <td>".$user."</td>
-                <td>".$nombre."</td>
-                <td>".$apellido."</td>
-                <td>".$correo."</td>
-                <td>".$contrasena."</td>
-                <td>".$fecha_reg."</td>
+                foreach ($array as &$valor) {?>
+                <tr>
+                <td><?php echo $valor['usuario'] ?></td>
+                <td><?php echo $valor['nombre'] ?></td>
+                <td><?php echo $valor['apellido']  ?></td>
+                <td><?php echo $valor['correo'] ?></td>
+                <td><?php echo $valor['contrasena'] ?></td>
+                <td><?php echo $valor['fecha_registro'] ?></td>
                 <td>
-                <a class='btn btn-primary btn-block' href='index.php?producto_form&id=".$id."'><i class='fas fa-pencil-alt'></i></a>
+                <a class='btn btn-primary btn-block' href='index.php?producto_form&id=<?php echo $valor['id'] ?>'><i class='fas fa-pencil-alt'></i></a>
                 <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
                 </td>
-              </tr>";
-                ?>
-                  
-                </tbody>
+              </tr>
                 <?php 
                 }
-              ?>
+              ?></tbody>
               </table>
             </div>
           </div>

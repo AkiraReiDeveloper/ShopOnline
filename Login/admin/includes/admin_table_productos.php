@@ -5,7 +5,7 @@
             Data Table Example</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
               <?php
               include "modelos/productos.php";
               $productos = new productos();
@@ -23,7 +23,29 @@
                     <th>Opciones</th>
                   </tr>
                 </thead>
-                <tfoot>
+                <tbody>
+                <?php
+                
+                foreach ($array as $valor) {?>
+                <tr>
+                  <td><?php echo $valor['nombre']?></td>
+                  <td><?php echo $valor['precio'] ?></td>
+                  <td><?php echo $valor['cantidad']?></td>
+                  <td><img  src= "../../<?php echo $valor['img'] ?>"id='img-user' height='150' width='120'></td>
+                  <td><?php echo $valor['categoria']?></td>
+                  <td><?php echo $valor['descripcion-corta']?></td>
+                  <td><?php echo $valor['descripcion'] ?></td>
+                  <td>
+                  <a class='btn btn-primary btn-block' href='index.php?producto_form&id=<?php echo $valor["id_productos"] ?>'><i class='fas fa-pencil-alt'></i></a>
+                  <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
+                  </td>
+                </tr>
+                
+                <?php 
+                }
+              ?>
+              </tbody>
+              <tfoot>
                   <tr>
                     <th>Nombre</th>
                     <th>Precio</th>
@@ -35,40 +57,6 @@
                     <th>Opciones</th>
                   </tr>
                 </tfoot>
-                
-                
-                <tbody>
-                <?php
-                
-                foreach ($array as &$valor) {
-                $id = $valor["id_productos"];
-                $name = $valor['nombre'] ;
-                $precio = $valor['precio'] ;
-                $cantidad = $valor['cantidad'] ;
-                $img = $valor['img'] ;
-                $categoria = $valor['categoria'] ;
-                $descripcion_cor = $valor['descripcion-corta'] ;
-                $descripcion = $valor['descripcion'] ;
-
-                echo "<tr>
-                <td>". $name."</td>
-                <td>".$precio."</td>
-                <td>".$cantidad."</td>
-                <td><img src='../../".$img."' id='img-user' height='150' width='120'></td>
-                <td>".$categoria."</td>
-                <td>".$descripcion_cor."</td>
-                <td>".$descripcion."</td>
-                <td>
-                <a class='btn btn-primary btn-block' href='index.php?producto_form&id=".$id."'><i class='fas fa-pencil-alt'></i></a>
-                <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
-                </td>
-              </tr>";
-                ?>
-                  
-                </tbody>
-                <?php 
-                }
-              ?>
               </table>
             </div>
           </div>

@@ -29,33 +29,22 @@
             <th>Opciones</th>
           </tr>
         </tfoot>
-
-
         <tbody>
         <?php
-
-        foreach ($array as &$valor) {
-        $id = $valor['id_categoria'] ;
-        $name = $valor['nombre'] ;
-        $img = $valor['img_categoria'] ;
-        $descripcion_cat = $valor['descripcion_categoria'] ;
-
-        echo "<tr>
-        <td>".$id."</td>
-        <td>".$name."</td>
-        <td><img src='../../".$img."' id='img-user' height='100' width='170'></td>
-        <td>".$descripcion_cat."</td>
+        foreach ($array as $valor) { ?>
+        <tr>
+        <td><?php echo $valor['id_categoria'] ?></td>
+        <td><?php echo $valor['nombre'] ?></td>
+        <td><img src='../../<?php echo $valor['img_categoria'] ?>' id='img-user' height='100' width='170'></td>
+        <td><?php echo $valor['descripcion_categoria'] ?></td>
         <td>
-          <a class='btn btn-primary btn-block' href='index.php?categoria_form&id=".$id."'><i class='fas fa-pencil-alt'></i></a>
+          <a class='btn btn-primary btn-block' href='index.php?categoria_form&id=<?php echo $valor['id_categoria'] ?>'><i class='fas fa-pencil-alt'></i></a>
           <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
         </td>
-      </tr>";
-        ?>
-
-        </tbody>
+      </tr>
         <?php
         }
-      ?>
+      ?></tbody>
       </table>
     </div>
   </div>
