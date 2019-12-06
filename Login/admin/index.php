@@ -7,6 +7,12 @@ include "includes/topBar.php";
 
     <?php
     include "includes/side_nav.php";
+    include_once "modelos/usuarios.php";
+    include_once "modelos/productos.php";
+    include_once "modelos/categoria.php";
+    $usuarios = new usuarios();
+    $producto = new productos();
+    $categorias = new categoria();
     ?>
 
     <div id="content-wrapper">
@@ -34,8 +40,11 @@ include "includes/topBar.php";
           $titulo_seccion = "Agregar Producto";
           $pagina = "includes/admin_table_productos.php";
           //$pagina = "includes/admin_agregar_producto.php";
-          $logo = "<i class='fas fa-fw fa-user-plus'></i>";
+          $logo = "<i class='fas fa-fw fa-plus'></i>";
           $color = "text-success";
+          if(isset($_GET['eliminar'])){
+            $producto->eliminarProducto($_GET['id']);
+          }
         }
         if(isset($_GET['actualizar_producto']) || isset($_GET['producto_form'])){
           $titulo_seccion = "Actualizar Producto";
@@ -54,26 +63,27 @@ include "includes/topBar.php";
           $pagina = "includes/admin_table_categoria.php";
           $logo = "<i class='fas fa-fw fa-plus-circle'></i>";
           $color = "text-success";
+          if(isset($_GET['eliminar'])){
+            $categorias->eliminarCategoria($_GET['id']);
+          }
         }
         if(isset($_GET['actualizar_categoria']) || isset($_GET['categoria_form'])){
           $titulo_seccion = "Actualizar Categoria";
           $pagina = "includes/admin_form_categoria.php";
           $logo = "<i class='fas fa-fw fa-pen'></i>";
           $color = "text-warning";
-        }
-        if(isset($_GET['eliminar_categoria'])){
-          $titulo_seccion = "Eliminar Categoria";
-          $pagina = "includes/admin_eliminar_categoria.php";
-          $logo = "<i class='fas fa-fw fa-minus-circle'></i>";
-          $color = "text-danger";
+          
         }
         if(isset($_GET['agregar_usuario'])){
           $titulo_seccion = "Agregar Usuario";
           $pagina = "includes/admin_table_usuario.php";
           $logo = "<i class='fas fa-fw fa-user-plus'></i>";
           $color = "text-success";
+          if(isset($_GET['eliminar'])){
+            $usuarios->eliminarUsuario($_GET['id']);
+          }
         }
-        if(isset($_GET['actualizar_usuario'])){
+        if(isset($_GET['actualizar_usuario']) || isset($_GET['usuario_form'])){
           $titulo_seccion = "Actualizar Usuario";
           $pagina = "includes/admin_form_usuario.php";
           $logo = "<i class='fas fa-fw fa-user-edit'></i>";

@@ -1,6 +1,6 @@
 <?php
 
-include "includes/conexion.php";
+include_once "includes/conexion.php";
 
 class productos extends ConexionDB{
 
@@ -28,8 +28,14 @@ class productos extends ConexionDB{
     }
   }
 
-  public function insertarProducto(){
+  public function insertarProducto($sql){
 
+    $resultado = $this->db->prepare($sql);
+    if($resultado->execute()){
+			mensaje("Registro agregado correctamente");
+		}else{
+      mensaje_danger("Error al agregar el producto");
+    }
   }
 
   public function getProductoPorId($id_producto){
@@ -50,7 +56,15 @@ class productos extends ConexionDB{
 
   }
 
-  public function eliminarProducto(){
+  public function eliminarProducto($id){
+    $sql = "DELETE from productos WHERE id_productos = '{$id}'";
+
+    $resultado = $this->db->prepare($sql);
+    if($resultado->execute()){
+			mensaje("Registro eliminado correctamente");
+		}else{
+      mensaje_danger("Error al eliminar el producto");
+    }
 /*
     $sql = "select * from productos where id_productos=?";
     $resultado = $this->db->prepare($sql);
@@ -74,8 +88,23 @@ class productos extends ConexionDB{
       }
     }*/
   }
+  
+  public function mostrarTituloProducto($value){
 
-  public function mostrarTituloProducto(){
+    $sql = "SELECT id_categoria, nombre FROM categoria";
+    $resultado = $this->db->prepare($sql);
+    $resultado->execute();
+    while( $registro = $resultado->fetch()){
+
+        if($registro['id_categoria'] == $value){
+
+              echo "<option value = '".$registro['id_categoria']."' selected> ".$registro['nombre']."</option>";
+
+        }else {
+
+             echo "<option value = '".$registro['id_categoria']."'>".$registro['nombre']."</option>";
+        }
+    }
 
   }
 

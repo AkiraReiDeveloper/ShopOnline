@@ -6,8 +6,10 @@
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <a class=' btn btn-success ' href='index.php?categoria_form&id=&agregar'><i class='fas fa-plus'> Agregar </i></a>
+      <br><br>
       <?php
-      include "modelos/categoria.php";
+      include_once "modelos/categoria.php";
       $categorias = new categoria();
       $array = $categorias->getCategoria();
       ?>
@@ -39,7 +41,7 @@
         <td><?php echo $valor['descripcion_categoria'] ?></td>
         <td>
           <a class='btn btn-primary btn-block' href='index.php?categoria_form&id=<?php echo $valor['id_categoria'] ?>'><i class='fas fa-pencil-alt'></i></a>
-          <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
+          <a class='btn btn-danger btn-block' href='index.php?agregar_categoria&eliminar&id=<?php echo $valor['id_categoria'] ?>' ><i class='fas fa-trash-alt'></i></a>
         </td>
       </tr>
         <?php

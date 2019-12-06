@@ -6,8 +6,10 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <a class=' btn btn-success ' href='index.php?producto_form&id=&agregar'><i class='fas fa-plus'> Agregar </i></a>
+              <br><br>
               <?php
-              include "modelos/productos.php";
+              include_once "modelos/productos.php";
               $productos = new productos();
               $array = $productos->getProducto(); 
               ?>
@@ -33,11 +35,11 @@
                   <td><?php echo $valor['cantidad']?></td>
                   <td><img  src= "../../<?php echo $valor['img'] ?>"id='img-user' height='150' width='120'></td>
                   <td><?php echo $valor['categoria']?></td>
-                  <td><?php echo $valor['descripcion-corta']?></td>
+                  <td><?php echo $valor['descripcion_corta']?></td>
                   <td><?php echo $valor['descripcion'] ?></td>
                   <td>
                   <a class='btn btn-primary btn-block' href='index.php?producto_form&id=<?php echo $valor["id_productos"] ?>'><i class='fas fa-pencil-alt'></i></a>
-                  <a class='btn btn-danger btn-block' href='#'><i class='fas fa-trash-alt'></i></a>
+                  <a class='btn btn-danger btn-block' href='index.php?agregar_producto&eliminar&id=<?php echo $valor['id_productos'] ?>' ><i class='fas fa-trash-alt'></i></a>
                   </td>
                 </tr>
                 

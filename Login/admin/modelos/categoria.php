@@ -1,5 +1,5 @@
 <?php
-include "includes/conexion.php";
+include_once "includes/conexion.php";
 
 class categoria extends ConexionDB{
 
@@ -27,8 +27,15 @@ class categoria extends ConexionDB{
     }
   }
 
-  public function insertarCategoria(){
+  public function insertarCategoria($sql){
 
+    //echo $sql;
+    $resultado = $this->db->prepare($sql);
+    if($resultado->execute()){
+			mensaje("Registro agregado correctamente");
+		}else{
+      mensaje_danger("Error al agregar el registro");
+    }
   }
 
   public function getCategoriaPorId($id_categoria){
@@ -49,11 +56,34 @@ class categoria extends ConexionDB{
 
   }
 
-  public function eliminarCategoria(){
+  public function eliminarCategoria($id){
 
+    $sql = "DELETE from categoria WHERE id_categoria = '{$id}'";
+
+    $resultado = $this->db->prepare($sql);
+    if($resultado->execute()){
+			mensaje("Registro eliminado correctamente");
+		}else{
+      mensaje_danger("Error al eliminar el producto");
+    }
   }
 
-  public function mostrarTituloCategoria(){
+  public function mostrarTituloCategoria($value){
+
+    $sql = "SELECT id_categoria, nombre FROM categoria";
+    $resultado = $this->db->prepare($sql);
+ 
+    while( $registro = $resultado->fetch()){
+
+        if($registro['nombre'] == $value){
+
+              echo "<option value = '".$registro['id_categoria']."' selected> ".$registro['nombre'];
+
+        }else {
+
+             echo "<option value = '".$registro['id_categoria']."'>".$registro['nombre'];
+        }
+    }
 
   }
 
