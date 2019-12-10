@@ -47,13 +47,13 @@
                 <label for="inputPassword">Password</label>
               </div>
 
-              <div class="form-label-group">
+              <!--<div class="form-label-group">
                 <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
                 <label for="inputConfirmPassword">Confirm password</label>
-              </div>
+              </div>-->
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="register_post" >Register</button>
-              <a class="d-block text-center mt-2 small" href="../Login/indexLogin.php">Sign In</a>
+              <a class="d-block text-center mt-2 small" href="../Login/index.php">Sign In</a>
               <hr class="my-4">
             </form>
           </div>

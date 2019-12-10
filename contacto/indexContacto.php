@@ -7,14 +7,11 @@
 <link rel="stylesheet" href="../vendor/bootstrap/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="../jquery/bootstrap/jquery.slim.min.js">
 <link rel="stylesheet" href="css/style.css">
-<?php
 
-include "../includes/topBar.php";
-?>
 </head>
 
-<body style="background:#ffffff">
-  <div class="container" style="margin-top: 10%">
+<body style="background:#1682F1">
+  <div class="container" style="margin-top: 0%">
     <div class="row" >
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
@@ -47,6 +44,3 @@ include "../includes/topBar.php";
   </div>
 </body>
 
-<?php
-      require_once "../includes/footer.php";
- ?>

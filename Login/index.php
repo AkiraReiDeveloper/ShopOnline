@@ -11,9 +11,9 @@
 
 <body>
   <?php
-  require_once "../includes/topBar.php";
-    require_once "../includes/conexion.php";
-    require_once "php/consulta.php";
+    //include_once "../includes/topBar.php";
+    include_once "../includes/conexion.php";
+    //include_once "php/consulta.php";
   ?>
 
   <div class="container">
@@ -22,14 +22,14 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin" action="indexLogin.php" method="post">
+            <form class="form-signin" action="admin/index.php" method="post">
               <div class="form-label-group">
-                <input type="text" id="inputEmail" class="form-control" name="email" placeholder="Email address" required autofocus>
+                <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Email address" required autofocus>
                 <label for="inputEmail">Email address</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                <input type="password" id="inputPassword" class="form-control" name="contrasena" placeholder="Password" required>
                 <label for="inputPassword">Password</label>
               </div>
 
@@ -46,5 +46,4 @@
     </div>
   </div>
 </body>
-
 </html>

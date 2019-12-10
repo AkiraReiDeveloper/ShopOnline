@@ -32,18 +32,20 @@ session_start();
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <a class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+          </a>
+        </div>
+      </div>
+    </form>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Login/indexLogin.php">Inicio de Sesión</a>
+          <a class="nav-link" href="Login/index.php">Sesión</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Register/register.php">Registrar</a>

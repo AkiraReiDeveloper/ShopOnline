@@ -21,6 +21,7 @@
                     <th>Apellido</th>
                     <th>Correo</th>
                     <th>Contraseña</th>
+                    <th>Perfil</th>
                     <th>Fecha de Registro</th>
                     <th>Opciones</th>
                   </tr>

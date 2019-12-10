@@ -1,4 +1,6 @@
 <?php
+include '../../Login/admin/modelos/mensajes.php';
+
 $server = "localhost";
 $user = "root";
 $pass = "";
@@ -35,9 +37,10 @@ try{
 }
 
   $ultimo_id = $pdo->lastInsertId();
-  echo "el ultimo registro es:".$ultimo_id;
-  //echo "tabla clientes creada.";
-}catch(Exeption $e){
+  //echo "el ultimo registro es:".$ultimo_id;
+  header("location: ../../Login/index.php");
+  mensaje("Te has registrado exitosamente, Ya puedes inciar sesion");
+}catch(Exception $e){
   echo $sql . "<br>" . $e->getMessage();
 }
 

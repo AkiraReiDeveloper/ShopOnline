@@ -6,6 +6,7 @@ class usuarios extends ConexionDB{
   private $db;
   private $usuarios;
   private $usuariosPorId;
+  private $nameUsuario;
 
   public function __construct(){
 
@@ -74,6 +75,24 @@ class usuarios extends ConexionDB{
 
   public function getNumeroUsuario(){
 
+  }
+
+  public function existeUsuario($user, $password){
+
+    $sql = "SELECT * from clientes WHERE correo = '{$user}' AND contrasena = '{$password}'";
+
+    $resultado = $this->db->prepare($sql);
+    $resultado->execute(['correo' => $user, 'contrasena' => $password]);
+    if($resultado->rowCount()){
+			return true;
+		}else{
+      return false;
+    }
+  }
+
+  public function setUsuario($usuario){
+
+    $this->nameUsuario = $usuario;
   }
 }
 ?>
