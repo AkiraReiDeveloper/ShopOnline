@@ -60,7 +60,7 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 								if($resultado->execute()){
 									while($registro = $resultado->fetch()){
 										$nombre_producto=$registro["nombre"];
-										$desc_corta = $registro["descripcion-corta"];
+										$desc_corta = $registro["descripcion_corta"];
 										$precio_producto = $registro["precio"];
 										$imagen_producto = $registro["img"];
 										$sub_total = $precio_producto * $valor;

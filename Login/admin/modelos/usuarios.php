@@ -7,6 +7,7 @@ class usuarios extends ConexionDB{
   private $usuarios;
   private $usuariosPorId;
   private $nameUsuario;
+  private $imgUsuario;
 
   public function __construct(){
 
@@ -82,8 +83,17 @@ class usuarios extends ConexionDB{
     $sql = "SELECT * from clientes WHERE correo = '{$user}' AND contrasena = '{$password}'";
 
     $resultado = $this->db->prepare($sql);
+    
     $resultado->execute(['correo' => $user, 'contrasena' => $password]);
     if($resultado->rowCount()){
+      while($registro = $resultado->fetch()){
+        $this->usuarios[]=$registro;
+      }
+      $array = $this->usuarios;
+      foreach ($array as $valor) {
+        $this->nameUsuario = $valor['usuario'];
+        $this->imgUsuario = $valor['img_usuario'];
+      }
 			return true;
 		}else{
       return false;
@@ -93,6 +103,18 @@ class usuarios extends ConexionDB{
   public function setUsuario($usuario){
 
     $this->nameUsuario = $usuario;
+  }
+
+  public function getUsuarioName(){
+
+    return $this->nameUsuario;
+
+  }
+
+  public function getUsuarioImagen(){
+
+    return $this->imgUsuario;
+
   }
 }
 ?>

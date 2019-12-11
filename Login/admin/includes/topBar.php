@@ -64,7 +64,8 @@
       </li>
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
+          <img src="../../<?php echo $_SESSION['img']; ?>" class="fa-fw rounded-circle"></img>
+          <spam><?php echo $_SESSION['user']; ?></spam>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="#">Settings</a>

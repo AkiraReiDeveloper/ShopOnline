@@ -1,6 +1,7 @@
 <?php 
 ob_start();
 session_start();
+include "includes/busqueda.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,19 +27,21 @@ session_start();
 
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" >
   <div class="container">
     <a class="navbar-brand" href="index.php">AKD Commerce Online</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" method="post" action="index.php">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" name="query">
         <div class="input-group-append">
-          <a class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </a>
+          <div class="input-group">
+            <button class="btn btn-primary border" type="submit" value="">
+              <i class="fa fa-search text-white" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
       </div>
     </form>

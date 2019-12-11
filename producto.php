@@ -29,7 +29,7 @@ error_reporting(E_ALL);
                   $nombre_producto = $registro["nombre"];
                   $precio_producto = $registro["precio"];
                   $image_producto = $registro["img"];
-                  $descripcion_corta_producto = $registro["descripcion-corta"];
+                  $descripcion_corta_producto = $registro["descripcion_corta"];
                   $descripcion_producto = $registro["descripcion"];
 
              ?>

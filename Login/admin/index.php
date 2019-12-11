@@ -17,9 +17,10 @@
 
         if($user->existeUsuario($userForm, $contraForm)){
             //mensaje("Usuario Valido");
-            $usuario_session->setCurrentUser($userForm);
+            $username = $user->getUsuarioName();
+            $userimg = $user->getUsuarioImagen();
+            $usuario_session->setCurrentUser($username, $userimg);
             $user->setUsuario($userForm);
-
             include_once 'index_.php';
         }else{
             echo "<script>javascript:window.history.back();</script>";
