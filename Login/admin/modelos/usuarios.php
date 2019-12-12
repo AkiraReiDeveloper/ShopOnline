@@ -8,6 +8,7 @@ class usuarios extends ConexionDB{
   private $usuariosPorId;
   private $nameUsuario;
   private $imgUsuario;
+  private $tipoUsuario;
 
   public function __construct(){
 
@@ -93,6 +94,7 @@ class usuarios extends ConexionDB{
       foreach ($array as $valor) {
         $this->nameUsuario = $valor['usuario'];
         $this->imgUsuario = $valor['img_usuario'];
+        $this->tipoUsuario = $valor['tipo'];
       }
 			return true;
 		}else{
@@ -114,6 +116,12 @@ class usuarios extends ConexionDB{
   public function getUsuarioImagen(){
 
     return $this->imgUsuario;
+
+  }
+
+  public function getUsuarioTipo(){
+
+    return $this->tipoUsuario;
 
   }
 }

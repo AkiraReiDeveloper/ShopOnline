@@ -11,9 +11,8 @@
 
 <body>
   <?php
-    //include_once "../includes/topBar.php";
-    include_once "../includes/conexion.php";
-    //include_once "php/consulta.php";
+    require_once "../includes/conexion.php";
+    include_once 'admin/modelos/mensajes.php';
   ?>
 
   <div class="container">
@@ -21,23 +20,56 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
+          <?php 
+          if(isset($_GET["novalido"])){
+            mensaje_danger("Usuario no valido");
+          }
+              if(isset($_GET["remember"])){
+                echo "<h5 class='card-title text-center'>Recordar Contraseña</h5>";
+              }else{
+                if(isset($_GET["return"])){
+                  echo "<h5 class='card-title text-center'>Ingresa Nueva Contraseña</h5>";
+                }else{
+                  echo "<h5 class='card-title text-center'>Inicio de Sesión</h5>";
+                }
+                
+              }
+            ?>
             <form class="form-signin" action="admin/index.php" method="post">
-              <div class="form-label-group">
-                <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Email address" required autofocus>
-                <label for="inputEmail">Email address</label>
+            <?php if(!isset($_GET["return"])){
+              echo "<div class='form-label-group'>
+                <input type='text' id='inputEmail' class='form-control' name='username' placeholder='Correo' required autofocus>
+                <label for='inputEmail'>Correo</label>
+              </div>";
+            } 
+              if(isset($_GET["remember"])){
+                echo "<button class='btn btn-lg btn-primary btn-block text-uppercase' type='submit' name='login_post'>Enviar</button>
+                <a class='btn btn-lg btn-danger btn-block text-uppercase' href='index.php'>Cancelar</a>";
+              }else{
+                if(isset($_GET["return"])){
+                  echo "<div class='form-label-group'>
+                <input type='password' id='inputPassword' class='form-control' name='contrasena' placeholder='Contraseña' required>
+                <label for='inputPassword'>Nueva Contraseña</label>
               </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" name="contrasena" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
+              <div class='form-label-group'>
+                <input type='password' id='inputPassword' class='form-control' name='contrasena' placeholder='Contraseña' required>
+                <label for='inputPassword'>Repite Nueva Contraseña</label>
               </div>
-
-              <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1" >
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              <button class='btn btn-lg btn-primary btn-block text-uppercase' type='submit' name='login_post'>Aceptar</button>";
+                }else{
+                  echo "<div class='form-label-group'>
+                <input type='password' id='inputPassword' class='form-control' name='contrasena' placeholder='Contraseña' required>
+                <label for='inputPassword'>Contraseña</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="login_post">Sign in</button>
+              <button class='btn btn-lg btn-primary btn-block text-uppercase' type='submit' name='login_post'>Iniciar Sesión</button>
+              <br>
+              <div class='form-label-group text-center'>
+              <a class='' href='index.php?remember'>Olvide mi contraseña</a>
+              </div>";
+                }
+                
+              }
+              ?>
               <hr class="my-4">
             </form>
           </div>

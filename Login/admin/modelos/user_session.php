@@ -7,10 +7,13 @@ class UserSession{
         session_start();
     }
 
-    public function setCurrentUser($user, $img){
+    public function setCurrentUser($user, $img, $tipe){
 
         $_SESSION['user'] = $user;
         $_SESSION['img'] = $img;
+        if($tipe==1){
+            $_SESSION['admin'] = $tipe;
+        }
     }
 
     public function getCurrentUser(){

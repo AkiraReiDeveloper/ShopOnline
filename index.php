@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once "includes/conexion.php";
-include "includes/topBar.php";
+require_once "includes/topBar.php";
 require_once 'Login/admin/modelos/mensajes.php';
 require_once 'includes/busqueda.php';
 ?>
@@ -49,6 +49,7 @@ require_once 'includes/busqueda.php';
                 }else{
                     mensaje("El producto ingresado no existe");
                 }
+                unset($_POST['query']);
             }
               foreach($registro as $value){
                 $id_producto = $value["id_productos"];

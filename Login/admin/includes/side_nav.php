@@ -6,38 +6,23 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item ">
+        <a class="nav-link" href="index.php?agregar_producto">
           <i class="fas fa-fw fa-warehouse"></i>
           <span>Productos</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="index.php?agregar_producto">Agregar</a>
-          <a class="dropdown-item" href="index.php?actualizar_producto">Editar</a>
-          <a class="dropdown-item" href="index.php?eliminar_producto">Eliminar</a>
-        </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="index.php?agregar_categoria">
           <i class="fas fa-fw fa-boxes"></i>
           <span>Categorias</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="index.php?agregar_categoria">Agregar</a>
-          <a class="dropdown-item" href="index.php?actualizar_categoria">Editar</a>
-          <a class="dropdown-item" href="index.php?eliminar_categoria">Eliminar</a>
-        </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="index.php?agregar_usuario">
           <i class="fas fa-fw fa-user"></i>
           <span>Usuarios</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="index.php?agregar_usuario">Agregar</a>
-          <a class="dropdown-item" href="index.php?actualizar_usuario">Editar</a>
-          <a class="dropdown-item" href="index.php?eliminar_usuario">Eliminar</a>
-        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.php?visualizar_graficas">
@@ -48,5 +33,10 @@
         <a class="nav-link" href="index.php?visualizar_tablas">
           <i class="fas fa-fw fa-table"></i>
           <span>Tablas</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../">
+          <i class="fas fa-fw fa-pager"></i>
+          <span>Visualizar Tienda</span></a>
       </li>
     </ul>

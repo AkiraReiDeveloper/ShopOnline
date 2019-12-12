@@ -47,14 +47,36 @@ include "includes/busqueda.php";
     </form>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="Login/index.php">Sesión</a>
+        <?php
+        if(isset($_SESSION["user"])){
+          echo "<li class='nav-item dropdown no-arrow'>
+          <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <img src='".$_SESSION['img']."' class='fa-fw rounded-circle'></img>
+            <spam>".$_SESSION['user']."</spam>
+          </a>
+          <div class='dropdown-menu dropdown-menu-right' aria-labelledby='userDropdown'>
+            <a class='dropdown-item' href='#'>Ajustes</a>
+            <a class='dropdown-item' href='#'>Actividad</a>
+            <div class='dropdown-divider'></div>
+            <a class='dropdown-item' href='includes/logout.php'>Salir</a>
+          </div>
+        </li>";
+        if(isset($_SESSION["admin"])){
+          echo "<li class='nav-item'>
+          <a class='nav-link' href='Login/admin'>Administrar</a>
+        </li>";
+        }
+        }else{
+          echo "<li class='nav-item'>
+          <a class='nav-link' href='Login/'>Sesión</a>
         </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='Register/'>Registrar</a>
+        </li>";
+        }
+        ?>
         <li class="nav-item">
-          <a class="nav-link" href="Register/register.php">Registrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contacto/indexContacto.php">Contacto</a>
+          <a class="nav-link" href="contacto/">Contacto</a>
         </li>
         <li class="nav-item">
           <a class="btn btn-success btn-block" href="carrito_.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito 
@@ -76,7 +98,7 @@ include "includes/busqueda.php";
           ?>
           </span></a>
         </li>
-
+        
       </ul>
     </div>
   </div>

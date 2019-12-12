@@ -17,7 +17,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Contacto</h5>
-            <form class="form-signin" action="php/validacion.php" method="post">
+            <form class="form-signin" action="" method="post">
               <div class="form-label-group">
                 <input type="text" id="inputNombre" class="form-control" name="nombre" placeholder="Nombre" required autofocus>
                 <label for="inputEmail">Nombre</label>
@@ -34,7 +34,7 @@
                 <textarea type="text" id="inputMensaje" class="form-control" name="email" placeholder="Mensaje" required autofocus></textarea>
                 <label for="inputMensaje"></label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="login_post">Enviar</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="lt">Enviar</button>
               <hr class="my-4">
             </form>
           </div>

@@ -68,10 +68,10 @@
           <spam><?php echo $_SESSION['user']; ?></spam>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
+          <a class="dropdown-item" href="#">Ajustes</a>
+          <a class="dropdown-item" href="#">Actividad</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="../../includes/logout.php">Logout</a>
+          <a class="dropdown-item" href="../../includes/logout.php">Salir</a>
         </div>
       </li>
     </ul>
