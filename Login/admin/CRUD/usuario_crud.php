@@ -18,8 +18,8 @@ include_once 'modelos/usuarios.php';
 		//$fecha = $_POST['fecha'];
 
 
-		$sql = "INSERT INTO clientes( id, usuario, nombre, apellido, correo, contrasena, img_usuario, token )
-		VALUES ('', '$usuario', '$nombre', '$apellido', '$correo', '$contrasena', '$ruta_img', '')";
+		$sql = "INSERT INTO clientes( id, usuario, nombre, apellido, correo, contrasena, img_usuario, token, tipo )
+		VALUES ('', '$usuario', '$nombre', '$apellido', '$correo', '$contrasena', '$ruta_img', '', '2')";
 		//echo $sql;
 
 		$usuarios->insertarUsuario($sql);

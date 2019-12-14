@@ -5,6 +5,6 @@
     $userSession = new UserSession();
     $userSession->clouseSession();
 
-    header("location: ../Login/index.php");
+    header("location: ../");
 
 ?>

@@ -58,7 +58,7 @@ error_reporting(E_ALL);
             $descripcion_producto = $registro["descripcion"];
 
        ?>
-      <div class="col-lg-3 col-md-6 mb-4">
+      <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top img_categoria" src="<?php echo $image_producto;?>" alt="">
           <div class="card-body">
