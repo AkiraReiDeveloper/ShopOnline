@@ -4,6 +4,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
     require_once "includes/conexion.php";
     include "includes/topBar.php";
+    include_once "Login/admin/modelos/usuarios.php";
+    include_once "Login/admin/modelos/productos.php";
+    $usuario = new usuarios();
+    $producto = new productos();
    ?>
    <!-- Page Content -->
    <div class="container">
@@ -41,7 +45,7 @@ error_reporting(E_ALL);
                 <h4>&#36;<?php echo $precio_producto ?></h4>
                 <p class="card-text"><?php echo $descripcion_producto ?></p>
                 <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-                4.0 stars
+                4.0 Calificación
               </div>
             </div>
             <?php
@@ -52,19 +56,66 @@ error_reporting(E_ALL);
 
             <div class="card card-outline-secondary my-4">
               <div class="card-header">
-                Product Reviews
+                Comentarios
               </div>
               <div class="card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+              <?php
+            
+                $conexion = ConexionDB::conexion();
+                $sql="select * from comentarios where forenkey_producto=".$_GET["id_producto"];
+                $resultado = $conexion->prepare($sql);
+                if(!$resultado->execute()){
+                  echo"<h1 style='color:red'></h1>";
+                }else{
+                  $registro = $resultado->fetchAll();
+                  foreach($registro as $value){
+                    $id_comentario = $value["id_comentario"];
+                    $comentario = $value["comentario"];
+                    $fecha_comentario = $value["fecha_comentario"];
+                    $usuario_array = $usuario->getUsuarioPorId($value["forenkey_usuario"]);
+                    $name_usuario = $usuario->getUsuarioName();
+
+              ?>
+                <p><?php echo $comentario?></p>
+                <small class="text-muted">Posteado por <?php echo $name_usuario?> el <?php echo $fecha_comentario?></small>
+                <?php 
+                if(isset($_SESSION["user"]) || isset($_SESSION["admin"])){
+                  if($_SESSION["id_user"] == $usuario->getUsuarioId()){
+                    echo "<a href='' class='btn btn-success fa fa-edit'></a>";
+                  } 
+                } ?>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                <hr>
-                <a href="#" class="btn btn-success">Leave a Review</a>
+                <?php
+                  }
+                }
+                if(isset($_POST["comentario"])){
+                  $id_product = $_POST["id_product"];
+                  $coment = $_POST["coment"];
+                  $id_user = $_SESSION["id_user"];
+                  if($producto->setComentario($coment, $id_product, $id_user)){
+                    header("location: producto.php?id_producto=".$id_producto);
+                  }
+                }
+                if(isset($_SESSION["user"]) || isset($_SESSION["admin"])){
+                  if(isset($_GET["comentar"])){
+                    echo "
+                    <form action='' method='post'>
+                    <div class='form-group row'>
+                    <label for='product-title'>Agrega tu comentario</label>
+                    <textarea name='coment' id='' cols='10' rows='5' class='form-control' required></textarea>
+                    </div>
+                    <input type='text' name='id_product' class='form-control' value='".$_GET['id_producto']."' hidden>
+                    <a href='producto.php?id_producto=".$_GET['id_producto']."' class='btn btn-danger btn-lg'>Cancelar</a>
+                    <input type='submit' name='comentario' class='btn btn-success btn-lg' value='Aplicar'>
+                    <form>
+                    ";
+                  }else{
+                  ?>
+                  <a href="producto.php?comentar&id_producto=<?php echo $_GET['id_producto']?>" class="btn btn-success">Dejar un comentario</a>
+                  <?php 
+                  } 
+                }
+                ?>
               </div>
             </div>
             <!-- /.card -->

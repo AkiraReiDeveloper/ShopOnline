@@ -66,7 +66,7 @@ error_reporting(E_ALL);
             <p class="card-text"><?php echo $descripcion_corta_producto?></p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Mas Información</a>
+            <a href="producto.php?id_producto=<?php echo $id_producto ?>" class="btn btn-primary">Mas Información</a>
           </div>
         </div>
       </div>

@@ -21,8 +21,23 @@
         <div class="card card-signin my-5">
           <div class="card-body">
           <?php 
+          if(isset($_GET["error"])){
+            mensaje_danger("Correo no valido");
+          }
           if(isset($_GET["novalido"])){
             mensaje_danger("Usuario no valido");
+          }
+          if(isset($_GET["exito"])){
+            mensaje("Contraseña Actualizada");
+          }
+          if(isset($_GET["fail"])){
+            mensaje_danger("Ha ocurrido un error");
+          }
+          if(isset($_GET["notoken"])){
+            mensaje_danger("Ha ocurrido un error");
+          }
+          if(isset($_GET["nocontra"])){
+            mensaje_danger("Las Contraseñas no Coinciden");
           }
               if(isset($_GET["remember"])){
                 echo "<h5 class='card-title text-center'>Recordar Contraseña</h5>";
@@ -43,19 +58,22 @@
               </div>";
             } 
               if(isset($_GET["remember"])){
-                echo "<button class='btn btn-lg btn-primary btn-block text-uppercase' type='submit' name='login_post'>Enviar</button>
+                echo "<button class='btn btn-lg btn-primary btn-block text-uppercase' type='submit' name='RememberPass'>Enviar</button>
                 <a class='btn btn-lg btn-danger btn-block text-uppercase' href='index.php'>Cancelar</a>";
               }else{
                 if(isset($_GET["return"])){
                   echo "<div class='form-label-group'>
-                <input type='password' id='inputPassword' class='form-control' name='contrasena' placeholder='Contraseña' required>
-                <label for='inputPassword'>Nueva Contraseña</label>
+                  <input type='text' name='token' value='".$_GET["token"]."' hidden>
+                  </div>
+                  <div class='form-label-group'>
+                <input type='password' id='newPassword' class='form-control' name='contrasena' placeholder='Contraseña' required>
+                <label for='newPassword'>Nueva Contraseña</label>
               </div>
               <div class='form-label-group'>
-                <input type='password' id='inputPassword' class='form-control' name='contrasena' placeholder='Contraseña' required>
-                <label for='inputPassword'>Repite Nueva Contraseña</label>
+                <input type='password' id='newRPassword' class='form-control' name='contrasena2' placeholder='Contraseña' required>
+                <label for='newRPassword'>Repite Nueva Contraseña</label>
               </div>
-              <button class='btn btn-lg btn-primary btn-block text-uppercase' type='submit' name='login_post'>Aceptar</button>";
+              <button class='btn btn-lg btn-primary btn-block text-uppercase' type='submit' name='recuperar'>Aceptar</button>";
                 }else{
                   echo "<div class='form-label-group'>
                 <input type='password' id='inputPassword' class='form-control' name='contrasena' placeholder='Contraseña' required>

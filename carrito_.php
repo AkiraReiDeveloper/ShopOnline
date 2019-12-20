@@ -17,8 +17,8 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 <input type="hidden" name="business" value="AkiraReiBusiness@gmail.com">
 <input type="hidden" name="upload" value="1">
 <input type="hidden" name="currency_code" value="MXN">
-<input type="hidden" name="cancel_return" value="http://localhost/~multiplataforma7/ShopOnline/">
-<input type="hidden" name="return" value="http://localhost/~multiplataforma7/ShopOnline/success.php">
+<input type="hidden" name="cancel_return" value="http://localhost/ShopOnline/">
+<input type="hidden" name="return" value="http://localhost/ShopOnline/success.php">
 
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
@@ -50,7 +50,6 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 					}
 					foreach($_SESSION as $llave => $valor){
 						if($valor > 0){
-
 							if(substr($llave,0,9)=="producto_"){
 								$longitud = strlen($llave)-9;
 								$id_producto = substr($llave,9,$longitud);
@@ -97,10 +96,10 @@ if(isset($_GET["cantidad"]) and (isset($_GET["nombre_producto"])) ){
 						<input type="hidden" name="amount_<?php echo $amount?>" value="<?php echo $precio_producto ?>">
 						<input type="hidden" name="quantity_<?php echo $quantity?>" value="<?php echo $valor ?>">
 						<?php
-			$item_name++;
-			$item_number++;
-			$amount++;
-			$quantity++;
+							$item_name++;
+							$item_number++;
+							$amount++;
+							$quantity++;
 						}
 						$_SESSION["total_articulos"]=$cantidad_articulos;
 						$_SESSION["total_a_pagar"]=$total+=$sub_total;

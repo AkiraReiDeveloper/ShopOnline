@@ -7,8 +7,9 @@ class UserSession{
         session_start();
     }
 
-    public function setCurrentUser($user, $img, $tipe){
+    public function setCurrentUser($iduser, $user, $img, $tipe){
 
+        $_SESSION['id_user'] = $iduser;
         $_SESSION['user'] = $user;
         $_SESSION['img'] = $img;
         if($tipe==1){

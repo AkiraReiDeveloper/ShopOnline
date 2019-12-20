@@ -111,5 +111,15 @@ class productos extends ConexionDB{
   public function getNumeroProducto(){
 
   }
+
+  public function setComentario($comentario, $id_producto, $id_usuario){
+    $sql = "INSERT INTO comentarios( comentario, forenkey_producto, forenkey_usuario )VALUES ( '$comentario', '$id_producto', '$id_usuario')";
+    $resultado = $this->db->prepare($sql);
+    if($resultado->execute()){
+      return true;
+		}else{
+      return false;
+    }
+  }
 }
 ?>
