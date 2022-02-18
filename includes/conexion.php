@@ -6,7 +6,7 @@ class ConexionDB{
     $server = "localhost";
     $user = "root";
     $pass = "";//fimaz2019
-    $database = "online_shop";
+    $database = "shop_online";
 
     try{
 
@@ -14,7 +14,7 @@ class ConexionDB{
       $pdo->query("SET NAMES 'utf8'");
 
       return $pdo;
-    }catch(Exeption $e){
+    }catch(Exception $e){
       print "Error". $e->getMessage();
       die();
     }
